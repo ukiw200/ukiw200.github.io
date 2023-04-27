@@ -193,7 +193,7 @@ function Welcome(){
 
 }
 function goBack() {
-    window.location.href = "/beginscherm/beginscherm.html";
+    window.location.href = "/beginscherm.html";
 }
 
 

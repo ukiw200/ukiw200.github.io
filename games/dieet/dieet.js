@@ -82,6 +82,6 @@ function bereken(event) {
 
   const goBackButton = document.getElementById("go-back-button");
   goBackButton.addEventListener("click", function() {
-    window.location.href = "/beginscherm/beginscherm.html";
+    window.location.href = "/beginscherm.html";
   });
   
