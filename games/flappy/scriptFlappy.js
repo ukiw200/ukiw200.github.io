@@ -81,6 +81,6 @@ function done(){
 
 
 function goBack() {
-    window.location.href = "/beginscherm.html";
+    window.location.href = "/index.html";
 }
 
