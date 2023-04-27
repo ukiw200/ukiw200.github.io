@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calorieën berekenen</title>
+    <link rel="stylesheet" href="dieet.css">
+</head>
+<body>
+	<h1>Calorieën berekenen afvallen</h1>
+	<h2>Voer uw gegevens in:</h2>
+    <button id="go-back-button">Go back</button>
+
+	<form>
+        <div class="gender-container">
+            <label>Geslacht:</label>
+            <input type="radio" name="geslacht" id="man" value="man" checked>
+            <label for="man">Man</label>
+            <input type="radio" name="geslacht" id="vrouw" value="vrouw">
+            <label for="vrouw">Vrouw</label>
+          </div>
+          
+        
+
+  <div class="slider-container">
+    <label for="leeftijd">Leeftijd: <span id="leeftijd-value">25</span></label>
+    <input type="range" id="leeftijd" name="leeftijd" min="17" max="100" value="25">
+  </div>
+
+  <div class="slider-container">
+    <label for="gewicht">Gewicht (kg): <span id="gewicht-value">70</span></label>
+    <input type="range" id="gewicht" name="gewicht" min="40" max="150" value="70">
+  </div>
+
+  <div class="slider-container">
+    <label for="grootte">Grootte (cm): <span id="grootte-value">170</span></label>
+    <input type="range" id="grootte" name="grootte" min="140" max="210" value="170">
+  </div>
+
+ 
+
+  <div class="slider-container">
+    <label for="doelgewicht">Gewenst gewicht (kg): <span id="doelgewicht-value">70</span></label>
+    <input type="range" id="doelgewicht" name="doelgewicht" min="40" max="150" value="70">
+  </div>
+
+  <div class="slider-container">
+    <label for="afvalperiode">Gewenste afvalperiode (weken):<span id="afvalperiode-Value">12</span></label>
+    <input type="range" id="afvalperiode" name="afvalperiode" min="1" max="52" value="12" > 
+</div>
+
+  
+
+  <button id="bereken-button" onclick="bereken(event)">Bereken</button>
+
+</form>
+
+      
+	
+	<p id="resultaat"></p>
+</body>
+<script src="dieet.js"></script>
+</html>

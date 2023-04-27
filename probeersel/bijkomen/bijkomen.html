@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calorieën berekenen</title>
+    <link rel="stylesheet" href="bijkomen.css">
+</head>
+<body>
+	<h1>Calorieën berekenen bijkomen </h1>
+	<h2>Voer uw gegevens in:</h2>
+    <button id="go-back-button">Go back</button>
+
+	<form>
+        <div class="gender-container">
+            <label>Geslacht:</label>
+            <input type="radio" name="geslacht" id="geslacht-man" value="man" checked>
+            <label for="geslacht-man">Man</label>
+            <input type="radio" name="geslacht" id="geslacht-vrouw" value="vrouw">
+            <label for="geslacht-vrouw">Vrouw</label>
+          </div>
+  <div class="slider-container">
+    <label for="leeftijd">Leeftijd: <span id="leeftijd-value">25</span></label>
+    <input type="range" id="leeftijd" name="leeftijd" min="18" max="100" value="25">
+  </div>
+  <div class="slider-container">
+    <label for="gewicht">Gewicht (kg): <span id="gewicht-value">70</span></label>
+    <input type="range" id="gewicht" name="gewicht" min="30" max="150" value="70">
+  </div>
+  <div class="slider-container">
+    <label for="grootte">Lengte (cm): <span id="grootte-value">170</span></label>
+    <input type="range" id="grootte" name="grootte" min="140" max="220" value="170">
+  </div>
+  
+  <div class="slider-container">
+    <label for="doelgewicht">Gewenst gewicht (kg): <span id="doelgewicht-value">70</span></label>
+    <input type="range" id="doelgewicht" name="doelgewicht" min="30" max="150" value="70">
+  </div>
+  <div class="slider-container">
+    <label for="spieraanwinstperiode">Periode voor spieraanwinst (weken): <span id="spieraanwinstperiode-value">12</span></label>
+    <input type="range" id="spieraanwinstperiode" name="spieraanwinstperiode" min="4" max="52" value="12">
+  </div>
+  <button id="bereken-button" type="submit">Bereken</button>
+</form>
+
+<div id="resultaat"></div>
+
+<script src="bijkomen.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake</title>
+    <link rel="stylesheet" href="styleSnake.css">
+    <script src="scriptSnake.js"></script>
+</head>
+<body>
+  <h1 id="hoofdtittel" >snake</h1>
+    <div id="Welkom">
+        <h1> Welkom!</h1>
+        
+    
+        <h2> kies hier je instellingen</h2>
+        <p>hoogte speelveld:</p>
+        <div class="Settings">
+        <input type="range" min="1" max="31" value="20" id="sliderHoogte" class="slider">
+          <p>hoogte :<span id="valueHoogte"></span></p>
+          <p>breette speelveld:</p>
+          <input type="range" min="20" max="75" value="50" id="sliderBreete" class="slider2">
+          <p>breette :<span id="valueBreete"></span></p>
+          <button class="Play!" onclick="instellingen()" id="play_button">Play!</button>
+          <button class="Play!" onclick="goBack()" id="play_button">Ga terug</button>
+
+          
+        </div>
+    </div>
+    
+    
+   
+    
+
+    
+        
+    <div id="gameContainer">   
+       <p class="score" id="optellen">Score: <span id="score">0</span></p>
+
+        <canvas id="board"></canvas>
+    </div>
+    <div id="gameover">
+    <h1 id="title1">Game Over</h1>
+    <p class="score" id="totalscore">Your score was: <span id="Totalscore">0</span></p>
+    <button onclick="restart()" id="restart_button">Restart</button>
+    </div>
+      
+    
+</body>
+</html>

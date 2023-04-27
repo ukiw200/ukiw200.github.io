@@ -1,0 +1,10 @@
+body{
+    margin: 0;
+}
+
+p.a{
+    text-align: center;
+    position: fixed;
+    align-items: flex-start;
+    
+}
