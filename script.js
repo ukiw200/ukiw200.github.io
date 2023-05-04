@@ -3,7 +3,7 @@ function submitForm() {
     const password = document.querySelector('input[name="password"]').value;
     
     // Check if the username and password are correct
-    if (username === "Casperisdebeste" && password === "Casperisdebeste") {
+    if (username === "LucasWillibal" && password === "Ukiw2005") {
       // Save the username and password in Local Storage
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
