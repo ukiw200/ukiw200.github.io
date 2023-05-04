@@ -138,6 +138,6 @@ periodeValue.addEventListener(
 
   const goBackButton = document.getElementById("go-back-button");
   goBackButton.addEventListener("click", function() {
-    window.location.href = "/index.html";
+    window.location.href = "/games/beginscherm/beginscherm.html";
   });
   

@@ -193,7 +193,7 @@ function Welcome(){
 
 }
 function goBack() {
-    window.location.href = "/index.html";
+    window.location.href = "/games/beginscherm/beginscherm.html";
 }
 
 
