@@ -35,47 +35,103 @@ function bereken(event) {
   
   
   
-  const leeftijdSlider = document.getElementById("leeftijd");
-  const leeftijdValue = document.getElementById("leeftijd-value");
-  
-  leeftijdSlider.addEventListener(
-    "input", function() {
-      leeftijdValue.textContent = leeftijdSlider.value;
-    });
-  
-  const gewichtSlider = document.getElementById("gewicht");
-  const gewichtValue = document.getElementById("gewicht-value");
-  
-  gewichtSlider.addEventListener(
-    "input", function() {
-      gewichtValue.textContent = gewichtSlider.value;
-    });
-  
-  const grootteSlider = document.getElementById("grootte");
-  const grootteValue = document.getElementById("grootte-value");
-  
-  grootteSlider.addEventListener(
-    "input", function() {
-      grootteValue.textContent = grootteSlider.value;
-    });
-  
-  
-  
-  const gewenstSlider = document.getElementById("doelgewicht");
-  const gewenstValue = document.getElementById("doelgewicht-value");
-  
-  gewenstSlider.addEventListener(
-    "input", function() {
-      gewenstValue.textContent = gewenstSlider.value;
-    });
+  const leeftijdSlider = document.getElementById('leeftijd');
+const leeftijdValue = document.getElementById('leeftijd-value');
 
-  const periodeSlider= document.getElementById("afvalperiode");
-  const periodeValue = document.getElementById("afvalperiode-Value");
+leeftijdSlider.addEventListener('input', function() {
+  leeftijdValue.value = leeftijdSlider.value;
+});
+
+leeftijdValue.addEventListener('input', function() {
+  if (leeftijdValue.value < 17) {
+    leeftijdValue.value = 17;
+  } else if (leeftijdValue.value > 100) {
+    leeftijdValue.value = 100;
+  }
+  leeftijdSlider.value = leeftijdValue.value;
+});
+
   
-  periodeSlider.addEventListener(
-    "input", function() {
-        periodeValue.textContent = periodeSlider.value;
-    });
+const gewichtSlider = document.getElementById("gewicht");
+const gewichtValue = document.getElementById("gewicht-value");
+
+gewichtSlider.addEventListener(
+  "input", function() {
+    gewichtValue.value = gewichtSlider.value;
+  });
+
+gewichtValue.addEventListener(
+  "input", function() {
+    if (gewichtValue.value < 30) {
+      gewichtValue.value = 30;
+    } else if (gewichtValue.value > 150) {
+      gewichtValue.value = 150;
+    }
+    gewichtSlider.value = gewichtValue.value;
+  });
+
+
+const grootteSlider = document.getElementById("grootte");
+const grootteValue = document.getElementById("grootte-value");
+
+grootteSlider.addEventListener(
+  "input", function() {
+    grootteValue.value = grootteSlider.value;
+  });
+
+grootteValue.addEventListener(
+  "input", function() {
+    if (grootteValue.value < 120) {
+      grootteValue.value = 120;
+    } else if (grootteValue.value > 220) {
+      grootteValue.value = 220;
+    }
+    grootteSlider.value = grootteValue.value;
+  });
+
+
+
+const gewenstSlider = document.getElementById("doelgewicht");
+const gewenstValue = document.getElementById("doelgewicht-value");
+
+gewenstSlider.addEventListener(
+  "input", function() {
+    gewenstValue.value = gewenstSlider.value;
+  });
+
+gewenstValue.addEventListener(
+  "input", function() {
+    if (gewenstValue.value < 30) {
+      gewenstValue.value = 30;
+} else if (gewenstValue.value > 150) {
+  gewenstValue.value = 150;
+}
+gewenstSlider.value = gewenstValue.value;
+});
+
+
+const periodeSlider = document.getElementById("afvalperiode");
+const periodeValue = document.getElementById("afvalperiode-Value");
+
+periodeSlider.addEventListener(
+  "input", function() {
+    periodeValue.value = periodeSlider.value;
+  });
+
+periodeValue.addEventListener(
+  "change", function() {
+    if (periodeValue.value < 1) {
+      periodeValue.value = 1;
+    } else if (periodeValue.value > 52) {
+      periodeValue.value = 52;
+    }
+    periodeSlider.value = periodeValue.value;
+  });
+
+
+
+
+
 
 
   const berekenButton = document.getElementById("bereken-button");

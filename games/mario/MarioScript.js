@@ -1,7 +1,4 @@
-import platform from'./img/2dplatform.png';
-const image = new Image();
-image.src = platform; 
-document.body.appendChild(image);
+
 
 
 

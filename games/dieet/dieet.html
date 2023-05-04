@@ -7,7 +7,12 @@
 <body>
 	<h1>Calorieën berekenen afvallen</h1>
 	<h2>Voer uw gegevens in:</h2>
-    <button id="go-back-button">Go back</button>
+  <button id="go-back-button">Go back</button>
+  <button id="upload-button">Upload</button>
+  <button id="download-button">Download</button>
+  <button id="save-button">save</button>
+
+   
 
 	<form>
         <div class="gender-container">
@@ -21,30 +26,39 @@
         
 
   <div class="slider-container">
-    <label for="leeftijd">Leeftijd: <span id="leeftijd-value">25</span></label>
-    <input type="range" id="leeftijd" name="leeftijd" min="17" max="100" value="25">
+   <label for="leeftijd">Leeftijd: </label>
+   <input type="number" id="leeftijd-value" name="leeftijd" min="17" max="100" value="25">
+   <input type="range" id="leeftijd" name="leeftijd" min="17" max="100" value="25">
   </div>
+          
 
   <div class="slider-container">
-    <label for="gewicht">Gewicht (kg): <span id="gewicht-value">70</span></label>
+    
+    <label for="gewicht">Gewicht (kg):</label>
+    <input type="number" id="gewicht-value" name="gewicht" min="40" max="150" value="70">
     <input type="range" id="gewicht" name="gewicht" min="40" max="150" value="70">
   </div>
 
   <div class="slider-container">
-    <label for="grootte">Grootte (cm): <span id="grootte-value">170</span></label>
+    <label for="grootte">Grootte (cm):</label>
+    <input for="number" id="grootte-value" name="grootte" min="140" max="210" value="170"></input>
     <input type="range" id="grootte" name="grootte" min="140" max="210" value="170">
   </div>
 
  
 
   <div class="slider-container">
-    <label for="doelgewicht">Gewenst gewicht (kg): <span id="doelgewicht-value">70</span></label>
-    <input type="range" id="doelgewicht" name="doelgewicht" min="40" max="150" value="70">
+    <label for="doelgewicht">Gewenst gewicht (kg):</span></label>
+    <input type="number" id="doelgewicht-value" name="doelgewicht" min="30" max="150" value="70">
+    <input type="range" id="doelgewicht" name="doelgewicht" min="30" max="150" value="70">
+
   </div>
 
   <div class="slider-container">
-    <label for="afvalperiode">Gewenste afvalperiode (weken):<span id="afvalperiode-Value">12</span></label>
+    <label for="afvalperiode">Gewenste afvalperiode (weken):</label>
+    <input type="number" id="afvalperiode-Value" name="afvalperiode" min="1" max="52" value="12" > 
     <input type="range" id="afvalperiode" name="afvalperiode" min="1" max="52" value="12" > 
+
 </div>
 
   
