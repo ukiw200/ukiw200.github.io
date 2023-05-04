@@ -1,193 +1,78 @@
+/* Prototype of simple mario-like game with jQuery */
 
+var x = 0;
+var y = 0;
+var mario = $(".mario");
+var box = $(".box");
 
+//on keydown event, check if it's left arrow or right arrow
+$(document).keydown(function(e) {
+  //console.log(e);
 
+  //if right, translate X +20px to mario
+  if (e.keyCode == "39") {
+    x = x + 20;
+    $(".mario").css("transform", "translate(" + x + "px," + y + "px)");
+  }
 
-const canvas = document.querySelector('canvas');
-const C = canvas.getContext('2d');
-
-canvas.width = innerWidth;
-canvas.height = innerHeight;
-const zwaartekracht = 0.5;
-
-class Player{
-    constructor(){
-        this.position = {
-            x:100,
-            y:100
-        };
-        this.velocity = {
-            x:0,
-            y:0
-        };
-
-        this.width = 30;
-        this.height = 30;
+  //if left, translate X -20px to mario - check to keep mario in the window (> 0px)
+  if (e.keyCode == "37") {
+    x = x - 20;
+    if (x >= 0) {
+      $(".mario").css("transform", "translate(" + x + "px," + y + "px)");
+    } else {
+      x = 0;
     }
-    draw(){
-        C.fillStyle ='red';
-        C.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+  //if up, translate Y -90px to mario
+  if (e.keyCode == "38") {
+    y = y - 90;
+    $(".mario").css("transform", "translate(" + x + "px," + y + "px)");
+
+    var mario_top = mario.offset().top;
+
+    var box_top = box.offset().top;
+
+    //check for collision with coin box
+    if (
+      mario.offset().left + mario.width() / 2 > box.offset().left &&
+      mario.offset().top > box.offset().top
+    ) {
+      if (
+        mario.offset().left + mario.width() / 2 <
+        box.offset().left + box.width()
+      ) {
+        console.log("touch !");
+
+        //start box animation after 0.1s (time for mario's jump)
+        setTimeout(function() {
+          $(".coin").addClass("coin_animation");
+          $(".box").addClass("box_animation");
+        }, 100);
+
+        //show the winner title screen
+        setTimeout(function() {
+          $(".title").removeClass("hide");
+        }, 500);
+      }
     }
 
-    update(){
-        this.draw();
-        this.position.y += this.velocity.y;
-        this.position.x += this.velocity.x;
-
-        
-        if (this.position.y + this.height + this.velocity.y <= canvas.height){
-            this.velocity.y += zwaartekracht;
-        }
-        else{
-            this.velocity.y = 0;
-        }
-    }
-}
-
-class Platform{
-    constructor({x, y,image}){
-        this.position ={
-            x,
-            y
-        }
-        this.width = 200;
-        this.height = 20;
-      this.image = image
-    }
-    draw() {
-        //C.fillStyle = 'blue';
-        //C.fillRect(this.position.x, this.position.y, this.width, this.height);
-        
-        C.drawImage(this.image, this. position.x,this.position.y)
-    }
-    
-}
-
-const player = new Player();
-const platforms = [
-    new Platform({x: 200, y:800, image}),
-    //new Platform({x: 500, y:600}),
-    //new Platform({x: 900, y:400}),
-    //new Platform({x: 1200, y:400}),
-    //new Platform({x: 1500, y:400}),
-    //new Platform({x: 1800, y:600}),
-    //new Platform({x: 2100, y:800})
-];
-
-const keys = {
-    right:{
-        pressed : false
-    },
-    Left:{
-        pressed : false
-    }
-}
-player.draw();
-
-var scrollOfset = 0;
-
-function animate(){
-    requestAnimationFrame(animate);
-    C.clearRect(0, 0, canvas.width, canvas.height);
-    player.update();
-    platforms.forEach((platform) => {
-        platform.draw();
-    })
-    if(keys.right.pressed && player.position.x <= 600){
-        player.velocity.x = 5;
-        
-        
-    }
-    else if(keys.Left.pressed && player.position.x >= 600){
-        player.velocity.x = -5;
-        
-        
-       
-    }
-    else
-    {
-       player.velocity.x = 0; 
-
-       if(keys.right.pressed){
-        platforms.forEach((platform) => {
-            platform.position.x -= 5;
-            scrollOfset +=5;
-            document.getElementById("scrollOfset").innerHTML = scrollOfset;
-            win();
-        })
-       
-       }
-       else{
-        if(keys.Left.pressed){
-            platforms.forEach((platform) => {
-                platform.position.x += 5;
-                scrollOfset -=5;
-                document.getElementById("scrollOfset").innerHTML = scrollOfset;
-            })
-            
-        }
-       }
-    } 
-    // platform staande
-    platforms.forEach((platform) => {
-    if(
-        player.position.y+player.height <= platform.position.y && 
-        player.position.y + player.height + player.velocity.y >= platform.position.y && 
-        player.position.x + player.width>= platform.position.x && 
-        player.position.x <=  platform.position.x+platform.width
-        )
-        {
-       player.velocity.y = 0;
-    }
-})
-}
-animate();
-
-addEventListener('keydown', ({keyCode}) => {
-    switch(keyCode){
-        case 38:   // up arrow
-            player.velocity.y = -20; // make the player move upwards
-            break; 
-
-        case 40:  // down arrow
-            break;
-
-        case 39:  // right arrow
-        keys.right.pressed= true;
-            break;
-        
-        case 37: // left arrow
-        keys.Left.pressed= true;
-            break;
-        
-        case 32: //stop
-        player.velocity.x =0
-            break;
-    }
-});
-addEventListener('keyup', ({keyCode}) => {
-    switch(keyCode){
-        case 38:   // up arrow
-            player.velocity.y = 0; // make the player move upwards
-            break; 
-
-        case 40:  // down arrow
-            break;
-
-        case 39:  // right arrow
-            keys.right.pressed= false;
-            break;
-        
-        case 37: // left arrow
-        keys.Left.pressed= false;
-            break;
-        
-        
-    }
+    //reset mario jump
+    setTimeout(function() {
+      y = y + 90;
+      $(".mario").css("transform", "translate(" + x + "px," + y + "px)");
+    }, 200);
+  }
 });
 
-function win(){
-    if(scrollOfset >= 12000){
-        alert('you won');
-
-    }
-}
+//reset game
+$(".title a").click(function() {
+  x = 0;
+  y = 0;
+  $(".mario").css("transform", "translate(0px,0px)");
+  $(".coin").removeClass("coin_animation");
+  $(".box").removeClass("box_animation");
+  setTimeout(function() {
+    $(".title").addClass("hide");
+  }, 100);
+});
