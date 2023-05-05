@@ -140,4 +140,34 @@ periodeValue.addEventListener(
   goBackButton.addEventListener("click", function() {
     window.location.href = "/games/beginscherm/beginscherm.html";
   });
+
+  function saveData() {
+    var naam = document.getElementById("naam").value;
+    var leeftijd = parseInt(document.getElementById("leeftijd").value);
+    var gewicht = parseFloat(document.getElementById("gewicht").value);
+    var lengte = parseInt(document.getElementById("grootte").value);
+    var geslacht = document.querySelector('input[name="geslacht"]:checked').value;
+    var doelgewicht = parseFloat(document.getElementById("doelgewicht").value);
+    var afvalperiode = parseInt(document.getElementById("afvalperiode").value);
+  
+    var userData = {
+      leeftijd: leeftijd,
+      gewicht: gewicht,
+      lengte: lengte,
+      geslacht: geslacht,
+      doelgewicht: doelgewicht,
+      afvalperiode: afvalperiode
+    };
+  
+    localStorage.setItem(naam, JSON.stringify(userData));
+    alert("Data saved successfully!");
+
+  }
+  
+  function loadData() {
+    window.location.href = "/games/formulier test/index.html";
+
+  }
+  
+  
   

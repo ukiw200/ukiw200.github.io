@@ -185,23 +185,12 @@ body {
     cursor: pointer;
   }
 
-#download-button{
-  position: fixed;
-    top: 140px;
-    left: 20px;
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 
-}
+
+
 #save-button{
   position: fixed;
-  top: 200px;
+  top: 140px;
   left: 20px;
   display: block;
   margin: 20px auto;

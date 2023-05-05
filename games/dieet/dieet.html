@@ -8,20 +8,22 @@
 	<h1>Calorieën berekenen afvallen</h1>
 	<h2>Voer uw gegevens in:</h2>
   <button id="go-back-button">Go back</button>
-  <button id="upload-button">Upload</button>
-  <button id="download-button">Download</button>
-  <button id="save-button">save</button>
+  <button onclick="saveData()" id="save-button">Save</button>
+  <button onclick="loadData()" id="upload-button">searchName</button>
 
    
 
 	<form>
-        <div class="gender-container">
-            <label>Geslacht:</label>
-            <input type="radio" name="geslacht" id="man" value="man" checked>
-            <label for="man">Man</label>
-            <input type="radio" name="geslacht" id="vrouw" value="vrouw">
-            <label for="vrouw">Vrouw</label>
-          </div>
+    <label for="naam">Vul hier je naam in:</label>
+    <input type="text" id="naam" name="naam">
+
+   <div class="gender-container">
+    <label>Geslacht:</label>
+    <input type="radio" name="geslacht" id="man" value="man" checked>
+    <label for="man">Man</label>
+    <input type="radio" name="geslacht" id="vrouw" value="vrouw">
+    <label for="vrouw">Vrouw</label>
+    </div>
           
         
 
@@ -70,6 +72,8 @@
       
 	
 	<p id="resultaat"></p>
+  
+
 </body>
 <script src="dieet.js"></script>
 </html>
