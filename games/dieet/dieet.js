@@ -142,13 +142,25 @@ periodeValue.addEventListener(
   });
 
   function saveData() {
-    var naam = document.getElementById("naam").value;
     var leeftijd = parseInt(document.getElementById("leeftijd").value);
     var gewicht = parseFloat(document.getElementById("gewicht").value);
     var lengte = parseInt(document.getElementById("grootte").value);
     var geslacht = document.querySelector('input[name="geslacht"]:checked').value;
     var doelgewicht = parseFloat(document.getElementById("doelgewicht").value);
     var afvalperiode = parseInt(document.getElementById("afvalperiode").value);
+    var bmr;
+    if (geslacht === "man") {
+      bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) + 5;
+    } else {
+      bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) - 161;
+    }
+    var dagelijkse_caloriebehoefte = bmr;
+    var dagelijkse_waterbehoefte = gewicht * 0.03;
+    var totaal_gewichtsverlies = (gewicht - doelgewicht);
+    var gewichtsverlies_per_week = totaal_gewichtsverlies / afvalperiode;
+    var dagelijkse_caloriebehoefte_naar_gewenst_gewicht = dagelijkse_caloriebehoefte - 500 * gewichtsverlies_per_week;
+  
+   
   
     var userData = {
       leeftijd: leeftijd,
@@ -156,7 +168,16 @@ periodeValue.addEventListener(
       lengte: lengte,
       geslacht: geslacht,
       doelgewicht: doelgewicht,
-      afvalperiode: afvalperiode
+      afvalperiode: afvalperiode,
+      dagelijkse_caloriebehoefte: dagelijkse_caloriebehoefte,
+      dagelijkse_waterbehoefte: dagelijkse_waterbehoefte,
+      totaal_gewichtsverlies: totaal_gewichtsverlies,
+      gewichtsverlies_per_week: gewichtsverlies_per_week,
+      dagelijkse_caloriebehoefte_naar_gewenst_gewicht: dagelijkse_caloriebehoefte_naar_gewenst_gewicht
+      
+
+
+
     };
   
     localStorage.setItem(naam, JSON.stringify(userData));
