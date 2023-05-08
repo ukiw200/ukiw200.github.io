@@ -17,6 +17,19 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 40px;
   margin: 50px auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+.slide-left {
+  transform: translateX(-400px);
+}
+
+.slide-right {
+  transform: translateX(400px);
 }
 
 h2 {
