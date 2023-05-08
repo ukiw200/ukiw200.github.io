@@ -13,8 +13,8 @@ function submitForm() {
         }
         break;
     
-      case "Joss":
-        if (password === "Joss123") {
+      case "Fred":
+        if (password === "Fred") {
           localStorage.setItem("username", username);
           localStorage.setItem("password", password);
           window.location.href = "/games/beginscherm/beginscherm.html";
