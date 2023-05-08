@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="love.css">
     <script src="love.js"></script>
-    <title>love</title>
+    <title>Love</title>
 </head>
 <body>
     <label for="girlName">Naam meisje:</label>
@@ -15,6 +15,25 @@
 <label for="boyName">Naam jongen:</label>
 <input type="text" id="boyName" name="boyName">
 
+
+
+
+    <button type="button" onclick="berekenLiefde()">Bereken Liefde</button>
+    <button type="button" onclick="clearData()">Clear Data</button>
+
+
+    <h2>Vorige Koppels</h2>
+    <table id="previousCouples">
+        <tr>
+            <th>Girl Name</th>
+            <th>Boy Name</th>
+            <th>Percentage</th>
+        </tr>
+    </table>
     
+
+    <div id="resultaat"></div>
+
+    <div id="result"></div>
 </body>
 </html>
