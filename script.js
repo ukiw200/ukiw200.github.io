@@ -17,7 +17,7 @@ function submitForm() {
       if (password === "Joss2005") {
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
-        window.location.href = "/games/beginscherm/beginscherm2.html";
+        window.location.href = "/games/beginscherm/beginscherm.html";
       } else {
         alert("Invalid username or password");
       }
