@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hardware Website</title>
+  <script src="hardware.js"></script>
+  <link rel="stylesheet" href="hardware.css">
+</head>
+<body>
+  <h1>Hardware</h1>
+  <button onclick="GoBack()" class="button"> Go back</button>
+
+  <h2>1 Printplaat met rubberen knoppen</h2>
+  <p>Ik heb een bestaande printplaat gekocht van Sparkfun, met daarop 16 plaatsen voor de rubberen knoppen en daaronder de LED’s in een 4*4 matrix. De LED’s zijn RGB- LED’s die geschakeld zullen worden door LabVIEW op basis van de ingedrukte knoppen. Ook daarvoor zijn 16 plaatsen voorzien op het printplaatje samen met de 16 plaatsen voor de diodes. </p>
+  <img src="/Users/lucas/Documents/GitHub/ukiw200.github.io/games/launchpad/img/Afbeelding1.png" alt="rubbere knoppen ">
+  <h2>2 Transistoren</h2>
+  <h3>2.1 BC557</h3>
+  <p>Ik gebruik transistoren als schakelaars, omdat mijn DAQ-kaart zelf niet genoeg vermogen kan geven om al mijn RGB- LED’s allemaal tegelijk te kunnen besturen. Hiervoor kan ik aan de hand van deze transistoren en een externe bron, die 5V zal leveren, de LED’s op een goed vermogen schakelen. 
+    Deze PNP-transistoren zullen 5V koppelen aan mijn rijen van de ledmatrix staan.
+    </p>
+  <h3>2.2 BC547</h3>
+  <p>Ik gebruik deze transistoren om mijn kolommen van de led matrix aan te sturen. Deze 4 transistoren zijn ervoor om de 4 kolommen op hun beurt te laten connecteren met de massa, hierdoor heb ik meer controle over welke kolom ik wil aansturen voor mijn RGB- LED’s. </p>
+  <h2>3 RGB-LED's</h2>
+  <p>Ik zal RGB- LED’s gebruiken in mijn launchpad om meer kleuren ter beschikking te hebben, dit zal de effecten met lichtjes veel leuker en spectaculairder maken. Zo kan ik bijvoorbeeld 1 led groen maken terwijl de led ernaast rood of blauw zal zijn.  Ik werk met common kathode LED’s.</p>
+  <h2>4 Diode: 1N4148</h2>
+  <p>Ik gebruik deze diode om ghosting tussen drukknoppen en DAQ-kaart te voorkomen. Ghosting is het onbedoeld registreren van signalen van naburige knoppen in een matrix. De diode voorkomt dat deze signalen worden doorgegeven en zorgt voor een nauwkeurige registratie van de gegevens.</p>
+  <h2>5 Weerstanden</h2>
+  <p>Ik gebruik een externe voeding die 5 volt levert, hierdoor moet ik mijn RGB- LED’s beschermen tegen overstroom. Voor de groene en blauwe delen van de RGB zal ik 150 ohm gebruiken, voor de rode 82 ohm. </p>
+  <h2>6 DAQ-kaart: NI USB-6501 OEM</h2>
+  <p>k zal dit model DAQ-kaart gebruiken, omdat ik enkel digitale poorten nodig heb.
+    Deze DAQ-kaart heeft 24 poorten waarvan ik er 16 zal gebruiken voor mijn led matrix aan te sturen en 8 voor mijn knoppen te laten communiceren. 
+    </p>
+  <h2>7 Elektronisch schema matrix</h2>
+  <p>Inhoud van sectie 4.8...</p>
+  <h2>8 Printplaatje</h2>
+  <p>Om de grote chaos te voorkomen met breadboardjes en veel te veel kabeltjes heb ik, met Mr Habraken, besloten om een printplaatje te ontwerpen en zo veel properder en georganiseerder te werk gaan.
+
+  </p>
+  <h2>9 Connector 282834-8</h2>
+  <p>Om de draadjes gemakkelijk te kunnen verbinden op mijn printplaatje, heb ik deze connector gebruikt. </p>
+
+</body>
+</html>
