@@ -7,7 +7,7 @@ function submitForm() {
       if (password === "Lucas") {
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
-        window.location.href = "/games/beginscherm/beginscherm.html";
+        window.location.href = "/games/beginscherm/beginscherm2.html";
       } else {
         alert("Invalid username or password");
       }
@@ -32,7 +32,7 @@ function submitForm() {
       if (storedPassword && storedUsername && storedUsername === username && storedPassword === password) {
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
-        window.location.href = "/games/beginscherm/beginscherm2.html";
+        window.location.href = "/games/beginscherm/beginscherm.html";
       } else {
         alert("Invalid username or password");
       }
