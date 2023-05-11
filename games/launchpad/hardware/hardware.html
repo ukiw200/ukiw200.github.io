@@ -28,25 +28,30 @@
   <img src="/games/launchpad/img/leddata.png" alt="led data" id="ledIMG">
   <h2>4 Diode: 1N4148</h2>
   <p>Ik gebruik deze diode om ghosting tussen drukknoppen en DAQ-kaart te voorkomen. Ghosting is het onbedoeld registreren van signalen van naburige knoppen in een matrix. De diode voorkomt dat deze signalen worden doorgegeven en zorgt voor een nauwkeurige registratie van de gegevens.</p>
-  <img src="/games/launchpad/img/diode.jpg" alt="diode">
+  <img src="/games/launchpad/img/diode.jpg" alt="diode" id="diode">
   <h2>5 Weerstanden</h2>
   <p>Ik gebruik een externe voeding die 5 volt levert, hierdoor moet ik mijn RGB- LED’s beschermen tegen overstroom. Voor de groene en blauwe delen van de RGB zal ik 150 ohm gebruiken, voor de rode 82 ohm. </p>
-  <img src="/games/launchpad/img/weerstanden.png" alt="weerstanden">
+  <img src="/games/launchpad/img/weerstanden.png" alt="weerstanden" id="weerstanden">
   <h2>6 DAQ-kaart: NI USB-6501 OEM</h2>
   <p>k zal dit model DAQ-kaart gebruiken, omdat ik enkel digitale poorten nodig heb.
     Deze DAQ-kaart heeft 24 poorten waarvan ik er 16 zal gebruiken voor mijn led matrix aan te sturen en 8 voor mijn knoppen te laten communiceren. 
     </p>
-    <img src="/games/launchpad/img/daq.png" alt="">
+    <img src="/games/launchpad/img/daq.png" alt="daq" id="daq">
   <h2>7 Elektronisch schema matrix</h2>
+<p>Hieronder vindt u het elektrisch schema van de drukknoppenmatrix gecombineerd met de led matrix.</p>  <img src="/games/launchpad/img/matrixschema.png" alt="matrix" id="matrix">
   <p>De bedrading van de matrixen wordt bevestigd aan kleine eilandjes waardoor het makkelijker is om alles te assembleren en aan te sluiten op het programma.</p>
-  <img src="/games/launchpad/img/matrixschema.png" alt="">
   <h2>8 Printplaatje</h2>
   <p>Om de grote chaos te voorkomen met breadboardjes en veel te veel kabeltjes heb ik, met Mr Habraken, besloten om een printplaatje te ontwerpen en zo veel properder en georganiseerder te werk gaan.
 
   </p>
-  <img src="/games/launchpad/img/" alt="">
+  <p>Hier kan u het aansluitschema zien dat ik gemaakt heb op het printplaatje.
+    Aan de connectoren komen de draadjes die naar zowel de matrix als de DAQ-kaart gaan.
+    </p>
+    <img src="/games/launchpad/img/printpl_schema.png" alt="printplaatschema" id="printplaatschema">
+    <p>Ik heb de 6 connectoren verdeeld per 2 zodat er 3 groepen ontstaan. Er is altijd 1 connector die naar de matrix zal gaan en altijd 1 die naar de DAQ kaart/voeding zal gaan. De eerste groep zijn de kolommen die geschakeld worden door NPN-transistoren; deze staan vanonder aan de matrix. De 2e groep zijn de transistoren en weerstanden van de blauwe en de rode LED’s, de 3e groep zijn de transistoren en weerstanden van de groene LED’s samen met de drukknoppen.</p>
+    <img src="/games/launchpad//img/bedrading_printpl.png" alt="bedrading" id="bedrading">
   <h2>9 Connector 282834-8</h2>
   <p>Om de draadjes gemakkelijk te kunnen verbinden op mijn printplaatje, heb ik deze connector gebruikt. </p>
-
+    <img src="/games/launchpad/img/connector.jpg" alt="connector" id="connector">
 </body>
 </html>

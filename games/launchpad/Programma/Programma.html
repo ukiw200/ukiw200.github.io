@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programma</title>
+    <script src="Programma.js"></script>
+    <link rel="stylesheet" href="Programma.css">
+</head>
+<body>
+    <h1>Programma</h1>
+    <button onclick="GoBack()" class="button"> Go back</button>
+
+    <h2>1 Simulatie</h2>
+    <h3>1.1 Simulatie LED’s </h3>
+    <p>Om mijn programma te kunnen simuleren heb ik verschillende virtuele LED’s en drukknoppen gemaakt zodat ik zonder mijn hardware mijn programma kon testen.</p>
+    <p>Hier kan ik zelf de LED’s handmatig aan of uit zetten door op de LED te duwen van de kleur en positie die je wilt gebruiken. De knoppen van de kolommen die langs de onderkant staan worden bediend in de sequence van sturingen. De knoppen van de LED’s die langs de zijkant staan kan ik in een andere sequence aansturen en zo kan ik led patronen maken door hier variabelen van te maken en op true of false te zetten.</p>
+    <img src="/games/launchpad/Programma/img/Scherm­afbeelding 2023-05-11 om 18.27.11.png" alt="LabVIEW LED" id="LabVIEW_LED">
+    <img src="/games/launchpad/Programma/img/knopjes.png" alt="knopjes" id="knopjes">
+    <img src="/games/launchpad/Programma/img/draaiknop.png" alt="draaiknop" id="Draaiknop">
+    <p id="Draaiknop_text">Om de snelheid van de patronen handmatig te kunnen besturen heb ik een draaiknop gemaakt “LED’s snelheid” die de aantal milliseconden regelt in de sequence. Zo is het mogelijk om de snelheid van het patroon handmatig te sturen.</p>
+    <h3 id="drukknoppen_simu">1.2 Simulatie drukknoppen</h3>
+    <p>Om mijn drukknoppen te simuleren heb ik 16 virtuele knoppen gemaakt die ik aan en uit kan zetten op dezelfde manier waarop ik mijn fysieke knopen aan en uit kan zetten. Dit gaat door hetzelfde stukje code.</p>
+    <p>De LED’s die naast de knoppen staan zijn de variabelen die op true of false worden gezet wanneer er op de knop geduwd wordt. De “numeric” boven de knoppen staan voor het aantal keer dat de knop al eens ingedrukt werd. Wanneer de knop 1 keer wordt ingedrukt zal de LED aangaan en dus ook de muzieksample afspelen. Als de knop voor een 2e keer wordt bediend zal de LED weer uitgaan en zal die specifieke muzieksample uitgaan. De “numeric” zal ook weer op 0 komen staan en de knop is klaar om opnieuw bediend te worden.</p>
+    <img src="/games/launchpad/Programma/img/drukknoppensimul.png" alt="drukknoppen" id="drukknoppen_img">
+    <p>In bovenstaande voorbeeld kunt u ook de nummering van de knoppen zien deze zijn het hetzelfde als de nummering van de LED’s. </p>
+    <h2>2 sturing/lezing</h2>
+    <p>In dit onderdeel zal ik de sturing van de LED’s en de lezing van de drukknoppen bespreken. Ik werk in 1 lange sequence waar ik 8 verschillende stappen heb. Eerst worden kolommen en LED’s gestuurd, daarna worden de knoppen gelezen. Dit wordt telkens voor elke kolom opnieuw gedaan waardoor ik 8 stappen krijg in de sequence, 4 voor het lezen en 4 voor het schrijven.</p>
+
+
+
+
+</body>
+</html>

@@ -5,20 +5,7 @@ body {
     
   }
 
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #252932;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    color: #ffffff;
-    overflow-y: auto;
-    max-height: 500px;
-    text-align: center;
-    text-align: center;
-
-  }
+  
 
   h1 {
     font-size: 70px;
@@ -88,10 +75,45 @@ body {
 
   #BC547{
     border-radius: 100px;
-    margin-left: 520px;
+    margin-left: 540px;
   }
 
   #ledIMG{
     border-radius: 50px;
-    margin-left: 200px;
+    margin-left: 300px;
   }
+
+  #diode{
+    border-radius: 100px;
+    margin-left: 650px;
+  }
+
+  #weerstanden{
+    border-radius: 100px;
+    margin-left: 230px;
+  }
+
+  #daq{
+    border-radius: 100px;
+    margin-left: 350px;
+  }
+
+  #matrix,#printplaatschema{
+    width: 1500px;
+    height: 800px;
+    border-radius: 100px;
+    margin-left: 10px;
+  }
+  
+  #bedrading{
+    border-radius: 70px;
+    margin-left: 450px;
+  }
+  #connector{
+    border-radius: 100px;
+    margin-left: 520px;
+    width: 500px;
+    height: 300px;
+  }
+
+  
