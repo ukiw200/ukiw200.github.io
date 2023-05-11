@@ -53,6 +53,8 @@ body {
     font-size: 35px;
     color: #ffffff;
     text-align: center;
+    margin-left: 60px;
+    margin-right: 60px;
 
   }
   .button {
@@ -69,4 +71,27 @@ body {
     font-size: 14px;
     line-height: 1.5;
     padding: 5px;
+  }
+
+  #knoppen
+  {
+    align-items: center;
+    border-radius: 550px;
+    margin-left: 170px;
+  }
+
+  #BC557{
+    align-items: center;
+    border-radius: 100px;
+    margin-left: 520px;
+  }
+
+  #BC547{
+    border-radius: 100px;
+    margin-left: 520px;
+  }
+
+  #ledIMG{
+    border-radius: 50px;
+    margin-left: 200px;
   }
