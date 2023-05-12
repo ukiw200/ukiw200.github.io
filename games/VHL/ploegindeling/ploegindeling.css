@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 20px 0;
+  }
+  
+  .team-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .team-list-item {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .player-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .player-info {
+    margin-top: 10px;
+  }
+  
+  .player-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .player-details {
+    font-size: 14px;
+  }
+
+  #Michael{
+    border-radius: 50%;  
+    height: 150px;
+    overflow: hidden;
+}

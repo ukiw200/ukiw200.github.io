@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-  }
+    
+}
 
   .header {
     text-align: center;
@@ -39,4 +40,14 @@ body {
 
   .logo{
     margin-top: 0%;
+  }
+
+  #lucas_willibal_qr{
+    height: 500px;
+  }
+
+  #ploegfoto{
+    height: 500px;
+    margin-left: 350px;
+    margin-top: 50px;
   }
