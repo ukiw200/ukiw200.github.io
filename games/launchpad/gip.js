@@ -11,9 +11,13 @@ function Flowchart(){
 }
 
 function voorbeeldenLED(){
-    window.location.href="https://www.youtube.com/?hl=nl&gl=BE"
+    window.location.href="https://youtu.be/lW0-tbES4tM"
 }
 
 function voorbeeldMuziek(){
-    window.location.href="https://www.youtube.com/?hl=nl&gl=BE"
+    window.location.href="https://youtu.be/DE6sS92ayUs"
+}
+
+function problemen(){
+    window.location.href="/games/launchpad/problemen/probleem.html"
 }
