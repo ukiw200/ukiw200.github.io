@@ -9,3 +9,11 @@ function Programma(){
 function Flowchart(){
     window.location.href="/games/launchpad/Flowchart/Flowchart.html"
 }
+
+function voorbeeldenLED(){
+    window.location.href="https://www.youtube.com/?hl=nl&gl=BE"
+}
+
+function voorbeeldMuziek(){
+    window.location.href="https://www.youtube.com/?hl=nl&gl=BE"
+}
