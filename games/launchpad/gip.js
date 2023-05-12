@@ -5,3 +5,7 @@ function Hardware(){
 function Programma(){
     window.location.href="/games/launchpad/Programma/Programma.html"
 }
+
+function Flowchart(){
+    window.location.href="/games/launchpad/Flowchart/Flowchart.html"
+}

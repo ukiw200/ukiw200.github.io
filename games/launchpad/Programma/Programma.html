@@ -27,9 +27,19 @@
     <p>In bovenstaande voorbeeld kunt u ook de nummering van de knoppen zien deze zijn het hetzelfde als de nummering van de LED’s. </p>
     <h2>2 sturing/lezing</h2>
     <p>In dit onderdeel zal ik de sturing van de LED’s en de lezing van de drukknoppen bespreken. Ik werk in 1 lange sequence waar ik 8 verschillende stappen heb. Eerst worden kolommen en LED’s gestuurd, daarna worden de knoppen gelezen. Dit wordt telkens voor elke kolom opnieuw gedaan waardoor ik 8 stappen krijg in de sequence, 4 voor het lezen en 4 voor het schrijven.</p>
-
-
-
+    <h2>2.1 DAQ-sturing LED’s/Kolommen</h2>
+    <p>Dit is 1 van de 4 stappen in mijn sequence waar ik de LED’s en de kolommen aanstuur. Ze worden gestuurd per bit.</p>
+    <p>Als ik bijvoorbeeld Groen 1 wil aansturen dan is dat 2^0=1 dus zal LabVIEW 1 naar mijn DAQ-kaart sturen die dan signaal 0.0 zal lezen.</p>
+    <p>Deze stap wordt 4 maal uitgevoerd voor de 4 kolommen afwisselend hoog en laag te zetten. Deze signalen en pinnen heb ik allemaal in een schema gezet om alles mooi te kunnen bijhouden. </p>
+    <img src="/games/launchpad/Programma/img/sturing.png" alt="sturing" id="sturing">
+    <h2>inlezing drukknoppen</h2>
+    <p>Dit is 1 van de 4 stappen in de sequence die de kolommen uitleest. Doormiddel van de “Read” blok kan LabVIEW de ingangspoorten uitlezen.</p>
+    <p>Deze stap komt 4 keer voor: een keer voor iedere kolom. Per stap lees ik dus de stand van de 4 knoppen per kolom in.</p>
+    <p>Ook worden in deze stappen de LED’s per kolom gelezen.
+        Deze stap handelt over de 1e kolom.
+        </p>
+    <p>Zo gaat voor de blauwe LED’s blauw LED1 naar Blauw1, blauw LED5 naar blauw 2, blauw LED9 naar blauw 3 en blauw LED13 naar blauw 4. Dit geldt ook voor de volgende 3 rijen waar er telkens dan de volgende rij in de volgende kolom geschakeld wordt. </p>
+    <img src="/games/launchpad/Programma/img/lezing.png" alt="lezing" id="lezing">
 
 </body>
 </html>

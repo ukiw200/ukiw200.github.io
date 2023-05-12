@@ -5,20 +5,7 @@ body {
     
   }
 
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #252932;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    color: #ffffff;
-    overflow-y: auto;
-    max-height: 500px;
-    text-align: center;
-    text-align: center;
-
-  }
+  
 
   h1 {
     font-size: 70px;
@@ -73,45 +60,12 @@ body {
     padding: 5px;
   }
 
-  #LabVIEW_LED{
-    border-radius: 50px;
-    width: 1100px;
-    height: 500px;
+  #Flowalgemeen{
     margin-left: 200px;
-  }
-  
-  #knopjes{
     border-radius: 50px;
-    margin-left: 100px;
   }
   
-  #Draaiknop_text{
-    margin-right: 500px;
-    overflow: auto;
-    margin-top: 100px;
-  }
-
-  #Draaiknop{
-    margin-top: 50px;
-    margin-right: 190px;
-    float: right;
+  #Subroutine{
+    margin-left: 400px;
     border-radius: 50px;
-    height: 300px;
   }
-
-  #drukknoppen_simu{
-    margin-top: 200px;
-  }
-  
-  #drukknoppen_img{
-    height: 500px;
-    margin-left: 320px;
-  }
-
-  #sturing,#lezing{
-    border-radius: 50px;
-    margin-left: 500px;
-    height: 700px;
-  }
-
-  
