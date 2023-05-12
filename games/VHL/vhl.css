@@ -11,7 +11,7 @@ body {
   .logo {
     width: 100px;
     height: 100px;
-    background: url('foto_logo.jpg') center/cover;
+    background: url('/games/VHL/img/VHL_logo.png') center/cover;
   }
 
   .livestream {

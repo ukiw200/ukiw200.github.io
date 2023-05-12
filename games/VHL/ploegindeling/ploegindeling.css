@@ -61,3 +61,9 @@ body {
     height: 150px;
     overflow: hidden;
 }
+
+.logo {
+    width: 100px;
+    height: 100px;
+    background: url('/games/VHL/img/VHL_logo.png') center/cover;
+  }
