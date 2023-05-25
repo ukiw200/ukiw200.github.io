@@ -1,44 +1,21 @@
 function submitForm() {
   const username = document.querySelector('input[name="username"]').value;
   const password = document.querySelector('input[name="password"]').value;
-
-  switch (username) {
-    case "Lucas":
-      if (password === "Lucas") {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-        window.location.href = "/games/beginscherm/beginscherm2.html";
-      } else {
-        alert("Invalid username or password");
-      }
-      break;
-
-    case "Joss":
-      if (password === "Joss2005") {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-        window.location.href = "/games/beginscherm/beginscherm.html";
-      } else {
-        alert("Invalid username or password");
-      }
-      break;
-
-    default:
-      const userCount = localStorage.getItem("userCount");
-
-
-      const storedPassword = localStorage.getItem(`newuser${userCount}_password`); // Wachtwoord ophalen uit localStorage
-      const storedUsername = localStorage.getItem(`newuser${userCount}`); // Gebruikersnaam ophalen uit localStorage
-      if (storedPassword && storedUsername && storedUsername === username && storedPassword === password) {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-        window.location.href = "/games/beginscherm/beginscherm.html";
-      } else {
-        alert("Invalid username or password");
-      }
-      break;
+  
+  // Controleren of de gebruiker in het lokale profiel bestaat
+  const profiles = JSON.parse(localStorage.getItem("profiles")) || [];
+  const profile = profiles.find(profile => profile.username === username);
+  if (username=="Lucas"&& password=="Lucas"){
+    window.location.href = "/games/beginscherm/beginscherm2.html";
+  } else{
+    if (profile && profile.password === password) {
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+    window.location.href = "/games/beginscherm/beginscherm.html";
+  } else {
+    alert("Ongeldige gebruikersnaam of wachtwoord");
   }
-}
+}}
 
 function showCreateProfile() {
   const createProfileForm = document.getElementById('createProfileForm');
@@ -50,15 +27,20 @@ function createProfile() {
   const newPassword = document.getElementById('newPassword').value;
 
   if (newUsername && newPassword) {
-    const userCount = localStorage.getItem("userCount");
-    const userIndex = userCount ? parseInt(userCount) + 1 : 1;
-    localStorage.setItem(`newuser${userIndex}`, newUsername); // Opslaan van gebruikersnaam
-    localStorage.setItem(`newuser${userIndex}_password`, newPassword); // Opslaan van wachtwoord
-    localStorage.setItem("userCount", userIndex);
-    alert("Profile created successfully!");
+    const profiles = JSON.parse(localStorage.getItem("profiles")) || [];
+    const existingProfile = profiles.find(profile => profile.username === newUsername);
+
+    if (existingProfile) {
+      alert("Gebruikersnaam bestaat al. Kies een andere gebruikersnaam.");
+      return;
+    }
+
+    profiles.push({ username: newUsername, password: newPassword });
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+    alert("Profiel succesvol aangemaakt!");
     document.getElementById('newUsername').value = '';
     document.getElementById('newPassword').value = '';
   } else {
-    alert("Please enter a username and password for the new profile.");
+    alert("Voer een gebruikersnaam en wachtwoord in voor het nieuwe profiel.");
   }
 }

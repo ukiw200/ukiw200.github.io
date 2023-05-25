@@ -179,7 +179,8 @@ periodeValue.addEventListener(
 
 
     };
-  
+
+  var naam = document.getElementById("naam").value;
     localStorage.setItem(naam, JSON.stringify(userData));
     alert("Data saved successfully!");
 
