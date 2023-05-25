@@ -250,31 +250,7 @@ var naam = document.getElementById("naam").value;
 }
 
 function loadData() {
-  var naam = document.getElementById("naam").value;
-  var userData = localStorage.getItem(naam);
-  if (userData === null) {
-    alert("No data found for the provided name");
-  } else {
-    userData = JSON.parse(userData);
-    document.getElementById("leeftijd").value = userData.leeftijd;
-    document.getElementById("gewicht").value = userData.gewicht;
-    document.getElementById("grootte").value = userData.lengte;
-    document.querySelector('input[name="geslacht"][value="' + userData.geslacht + '"]').checked = true;
-    document.getElementById("doelgewicht").value = userData.doelgewicht;
-    document.getElementById("afvalperiode").value = userData.afvalperiode;
-
-    document.getElementById("leeftijd-value").value = userData.leeftijd;
-    document.getElementById("gewicht-value").value = userData.gewicht;
-    document.getElementById("grootte-value").value = userData.lengte;
-    document.getElementById("doelgewicht-value").value = userData.doelgewicht;
-    document.getElementById("afvalperiode-Value").value = userData.afvalperiode;
-
-    document.getElementById("resultaat").innerHTML =
-      "Dagelijkse waterbehoefte: " + userData.dagelijkse_waterbehoefte.toFixed(2) + " liter<br>" +
-      "Gewenst gewicht: " + userData.doelgewicht.toFixed(2) + " kg<br>" +
-      "Gewichtsverlies per week: " + userData.gewichtsverlies_per_week.toFixed(2) + " kg<br>" +
-      "Dagelijkse caloriebehoefte voor gewenst gewicht op rustdagen: " + userData.dagelijkse_caloriebehoefte_naar_gewenst_gewicht.toFixed(2) + " kcal";
-  }
+  window.location.href = "/games/formulier test/index.html";
 }
 
 const saveButton = document.getElementById("save-button");
