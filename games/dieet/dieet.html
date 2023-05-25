@@ -2,78 +2,107 @@
 <html>
 <head>
 	<title>Calorieën berekenen</title>
-    <link rel="stylesheet" href="dieet.css">
+	<link rel="stylesheet" href="dieet.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 	<h1>Calorieën berekenen afvallen</h1>
 	<h2>Voer uw gegevens in:</h2>
-  <button id="go-back-button">Go back</button>
-  <button onclick="saveData()" id="save-button">Save</button>
-  <button onclick="loadData()" id="upload-button">searchName</button>
-
-   
+	<button id="go-back-button">Go back</button>
+	<button onclick="saveData()" id="save-button">Save</button>
+	<button onclick="loadData()" id="upload-button">searchName</button>
 
 	<form>
-    <label for="naam">Vul hier je naam in:</label>
-    <input type="text" id="naam" name="naam">
+		<label for="naam">Vul hier je naam in:</label>
+		<input type="text" id="naam" name="naam">
 
-   <div class="gender-container">
-    <label>Geslacht:</label>
-    <input type="radio" name="geslacht" id="man" value="man" checked>
-    <label for="man">Man</label>
-    <input type="radio" name="geslacht" id="vrouw" value="vrouw">
-    <label for="vrouw">Vrouw</label>
-    </div>
-          
-        
+		<div class="gender-container">
+			<label>Geslacht:</label>
+			<input type="radio" name="geslacht" id="man" value="man" checked>
+			<label for="man">Man</label>
+			<input type="radio" name="geslacht" id="vrouw" value="vrouw">
+			<label for="vrouw">Vrouw</label>
+		</div>
 
-  <div class="slider-container">
-   <label for="leeftijd">Leeftijd: </label>
-   <input type="number" id="leeftijd-value" name="leeftijd" min="17" max="100" value="25">
-   <input type="range" id="leeftijd" name="leeftijd" min="17" max="100" value="25">
-  </div>
-          
+		<div class="slider-container">
+			<label for="leeftijd">Leeftijd: </label>
+			<input type="number" id="leeftijd-value" name="leeftijd" min="17" max="100" value="25">
+			<input type="range" id="leeftijd" name="leeftijd" min="17" max="100" value="25">
+		</div>
 
-  <div class="slider-container">
-    
-    <label for="gewicht">Gewicht (kg):</label>
-    <input type="number" id="gewicht-value" name="gewicht" min="40" max="150" value="70">
-    <input type="range" id="gewicht" name="gewicht" min="40" max="150" value="70">
-  </div>
+		<div class="slider-container">
+			<label for="gewicht">Gewicht (kg):</label>
+			<input type="number" id="gewicht-value" name="gewicht" min="40" max="150" value="70">
+			<input type="range" id="gewicht" name="gewicht" min="40" max="150" value="70">
+		</div>
 
-  <div class="slider-container">
-    <label for="grootte">Grootte (cm):</label>
-    <input for="number" id="grootte-value" name="grootte" min="140" max="210" value="170"></input>
-    <input type="range" id="grootte" name="grootte" min="140" max="210" value="170">
-  </div>
+		<div class="slider-container">
+			<label for="grootte">Grootte (cm):</label>
+			<input for="number" id="grootte-value" name="grootte" min="140" max="210" value="170"></input>
+			<input type="range" id="grootte" name="grootte" min="140" max="210" value="170">
+		</div>
 
- 
+		<div class="slider-container">
+			<label for="doelgewicht">Gewenst gewicht (kg):</label>
+			<input type="number" id="doelgewicht-value" name="doelgewicht" min="30" max="150" value="70">
+			<input type="range" id="doelgewicht" name="doelgewicht" min="30" max="150" value="70">
+		</div>
 
-  <div class="slider-container">
-    <label for="doelgewicht">Gewenst gewicht (kg):</span></label>
-    <input type="number" id="doelgewicht-value" name="doelgewicht" min="30" max="150" value="70">
-    <input type="range" id="doelgewicht" name="doelgewicht" min="30" max="150" value="70">
+		<div class="slider-container">
+			<label for="afvalperiode">Gewenste afvalperiode (weken):</label>
+			<input type="number" id="afvalperiode-Value" name="afvalperiode" min="1" max="52" value="12">
+			<input type="range" id="afvalperiode" name="afvalperiode" min="1" max="52" value="12">
+		</div>
 
-  </div>
+		<button id="bereken-button" onclick="bereken(event)">Bereken</button>
+	</form>
 
-  <div class="slider-container">
-    <label for="afvalperiode">Gewenste afvalperiode (weken):</label>
-    <input type="number" id="afvalperiode-Value" name="afvalperiode" min="1" max="52" value="12" > 
-    <input type="range" id="afvalperiode" name="afvalperiode" min="1" max="52" value="12" > 
-
-</div>
-
-  
-
-  <button id="bereken-button" onclick="bereken(event)">Bereken</button>
-
-</form>
-
-      
-	
 	<p id="resultaat"></p>
-  
+	<canvas id="chart"></canvas>
 
+	<script src="dieet.js"></script>
+	<script>
+		function createPieChart(data, labels) {
+			var ctx = document.getElementById('chart').getContext('2d');
+			var chart = new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: labels,
+					datasets: [
+						{
+							data: data,
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.7)',
+								'rgba(54, 162, 235, 0.7)',
+								'rgba(255, 206, 86, 0.7)',
+								'rgba(75, 192, 192, 0.7)',
+								'rgba(153, 102, 255, 0.7)',
+								'rgba(255, 159, 64, 0.7)'
+							],
+							borderColor: [
+								'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)'
+							],
+							borderWidth: 1
+						}
+					]
+				},
+				options: {
+					responsive: true
+				}
+			});
+		}
+
+		// Voorbeeldgegevens voor het taartdiagram
+		var pieData = [300, 200, 50,];
+		var pieLabels = ['Label 1', 'Label 2', 'Label 3', 'label 4'];
+
+		// Roep de functie aan om het taartdiagram te maken
+		createPieChart(pieData, pieLabels);
+	</script>
 </body>
-<script src="dieet.js"></script>
 </html>
