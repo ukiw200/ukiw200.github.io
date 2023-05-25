@@ -1,41 +1,110 @@
 function bereken(event) {
-    event.preventDefault();
-    // Gebruiker input ophalen
-    var leeftijd = parseInt(document.getElementById("leeftijd").value);
-    var gewicht = parseFloat(document.getElementById("gewicht").value);
-    var lengte = parseInt(document.getElementById("grootte").value);
-    var geslacht = document.querySelector('input[name="geslacht"]:checked').value;
-    var doelgewicht = parseFloat(document.getElementById("doelgewicht").value);
-    var afvalperiode = parseInt(document.getElementById("afvalperiode").value);
-  
-    // Berekeningen uitvoeren
-    var bmr;
-    if (geslacht === "man") {
-      bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) + 5;
-    } else {
-      bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) - 161;
-    }
-    var dagelijkse_caloriebehoefte = bmr;
-    var dagelijkse_waterbehoefte = gewicht * 0.03;
-    var totaal_gewichtsverlies = (gewicht - doelgewicht);
-    var gewichtsverlies_per_week = totaal_gewichtsverlies / afvalperiode;
-    var dagelijkse_caloriebehoefte_naar_gewenst_gewicht = dagelijkse_caloriebehoefte - 500 * gewichtsverlies_per_week;
-  
-    // Resultaten weergeven
-    document.getElementById("resultaat").innerHTML =  
-    "Dagelijkse waterbehoefte: " + dagelijkse_waterbehoefte.toFixed(2) + " liter<br>" + 
+  event.preventDefault();
+  // Gebruiker input ophalen
+  var leeftijd = parseInt(document.getElementById("leeftijd").value);
+  var gewicht = parseFloat(document.getElementById("gewicht").value);
+  var lengte = parseInt(document.getElementById("grootte").value);
+  var geslacht = document.querySelector('input[name="geslacht"]:checked').value;
+  var doelgewicht = parseFloat(document.getElementById("doelgewicht").value);
+  var afvalperiode = parseInt(document.getElementById("afvalperiode").value);
+  var trainingsdagen = getSelectedTrainingDays();
+
+
+  const selectedDays = getSelectedTrainingDays();
+  if (selectedDays.length === 0) {
+    alert("Selecteer minimaal één trainingsdag");
+    return;
+  }
+
+  // Berekeningen uitvoeren
+  var bmr;
+  if (geslacht === "man") {
+    bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) + 5;
+  } else {
+    bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) - 161;
+  }
+  var dagelijkse_caloriebehoefte = bmr;
+  var dagelijkse_waterbehoefte = gewicht * 0.03;
+  var totaal_gewichtsverlies = gewicht - doelgewicht;
+  var gewichtsverlies_per_week = totaal_gewichtsverlies / afvalperiode;
+
+  var dagelijkse_caloriebehoefte_trainingsdag = dagelijkse_caloriebehoefte + 200;
+  var dagelijkse_caloriebehoefte_rustdag = dagelijkse_caloriebehoefte;
+
+  var dagelijkse_caloriebehoefte_naar_gewenst_gewicht = dagelijkse_caloriebehoefte_rustdag - 500 * gewichtsverlies_per_week;
+
+  // Resultaten weergeven
+  document.getElementById("resultaat").innerHTML =
+    "Dagelijkse waterbehoefte: " + dagelijkse_waterbehoefte.toFixed(2) + " liter<br>" +
     "Gewenst gewicht: " + doelgewicht.toFixed(2) + " kg<br>" +
     "Gewichtsverlies per week: " + gewichtsverlies_per_week.toFixed(2) + " kg<br>" +
-    "Dagelijkse caloriebehoefte voor gewenst gewicht: " + dagelijkse_caloriebehoefte_naar_gewenst_gewicht.toFixed(2) + " kcal";
+    "Dagelijkse caloriebehoefte voor gewenst gewicht op rustdagen: " + dagelijkse_caloriebehoefte_naar_gewenst_gewicht.toFixed(2) + " kcal";
+
+  createCalorieChart(dagelijkse_caloriebehoefte_naar_gewenst_gewicht);
+}
+
+function createCalorieChart(dagelijkse_caloriebehoefte_naar_gewenst_gewicht) {
+  var ctx = document.getElementById('ctx').getContext('2d');
+
+  var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  var selectedTrainingDays = getSelectedTrainingDays();
+  var chartData = generateCalorieData(daysOfWeek, selectedTrainingDays, dagelijkse_caloriebehoefte_naar_gewenst_gewicht);
+
+  var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: chartData.labels,
+      datasets: [{
+        label: 'Calorieën',
+        data: chartData.data,
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+function generateCalorieData(daysOfWeek, selectedTrainingDays, dagelijkse_caloriebehoefte_naar_gewenst_gewicht) {
+  var data = [];
+  var trainingCalories = dagelijkse_caloriebehoefte_naar_gewenst_gewicht + 200;
+
+  for (var i = 0; i < daysOfWeek.length; i++) {
+    var day = daysOfWeek[i];
+    if (selectedTrainingDays.includes(day)) {
+      data.push(trainingCalories);
+    } else {
+      data.push(dagelijkse_caloriebehoefte_naar_gewenst_gewicht);
+    }
   }
+
+  return {
+    labels: daysOfWeek,
+    data: data
+  };
+}
+
+function getSelectedTrainingDays() {
+  var selectedDays = [];
+  var checkboxes = document.getElementsByName('trainingsdag');
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      selectedDays.push(checkboxes[i].value);
+    }
+  }
+  return selectedDays;
+}
+
+
   
-  
-  
-  
-  
-  
-  
-  const leeftijdSlider = document.getElementById('leeftijd');
+
+const leeftijdSlider = document.getElementById('leeftijd');
 const leeftijdValue = document.getElementById('leeftijd-value');
 
 leeftijdSlider.addEventListener('input', function() {
@@ -51,7 +120,6 @@ leeftijdValue.addEventListener('input', function() {
   leeftijdSlider.value = leeftijdValue.value;
 });
 
-  
 const gewichtSlider = document.getElementById("gewicht");
 const gewichtValue = document.getElementById("gewicht-value");
 
@@ -103,11 +171,11 @@ gewenstValue.addEventListener(
   "input", function() {
     if (gewenstValue.value < 30) {
       gewenstValue.value = 30;
-} else if (gewenstValue.value > 150) {
-  gewenstValue.value = 150;
-}
-gewenstSlider.value = gewenstValue.value;
-});
+    } else if (gewenstValue.value > 150) {
+      gewenstValue.value = 150;
+    }
+    gewenstSlider.value = gewenstValue.value;
+  });
 
 
 const periodeSlider = document.getElementById("afvalperiode");
@@ -128,68 +196,89 @@ periodeValue.addEventListener(
     periodeSlider.value = periodeValue.value;
   });
 
+const berekenButton = document.getElementById("bereken-button");
+berekenButton.addEventListener("click", bereken);
+
+const goBackButton = document.getElementById("go-back-button");
+goBackButton.addEventListener("click", function() {
+  window.location.href = "/games/beginscherm/beginscherm.html";
+});
+
+function saveData() {
+  var leeftijd = parseInt(document.getElementById("leeftijd").value);
+  var gewicht = parseFloat(document.getElementById("gewicht").value);
+  var lengte = parseInt(document.getElementById("grootte").value);
+  var geslacht = document.querySelector('input[name="geslacht"]:checked').value;
+  var doelgewicht = parseFloat(document.getElementById("doelgewicht").value);
+  var afvalperiode = parseInt(document.getElementById("afvalperiode").value);
+  var bmr;
+  if (geslacht === "man") {
+    bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) + 5;
+  } else {
+    bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) - 161;
+  }
+  var dagelijkse_caloriebehoefte = bmr;
+  var dagelijkse_waterbehoefte = gewicht * 0.03;
+  var totaal_gewichtsverlies = (gewicht - doelgewicht);
+  var gewichtsverlies_per_week = totaal_gewichtsverlies / afvalperiode;
+  var dagelijkse_caloriebehoefte_naar_gewenst_gewicht = dagelijkse_caloriebehoefte - 500 * gewichtsverlies_per_week;
+
+ 
+
+  var userData = {
+    leeftijd: leeftijd,
+    gewicht: gewicht,
+    lengte: lengte,
+    geslacht: geslacht,
+    doelgewicht: doelgewicht,
+    afvalperiode: afvalperiode,
+    dagelijkse_caloriebehoefte: dagelijkse_caloriebehoefte,
+    dagelijkse_waterbehoefte: dagelijkse_waterbehoefte,
+    totaal_gewichtsverlies: totaal_gewichtsverlies,
+    gewichtsverlies_per_week: gewichtsverlies_per_week,
+    dagelijkse_caloriebehoefte_naar_gewenst_gewicht: dagelijkse_caloriebehoefte_naar_gewenst_gewicht
+    
 
 
 
+  };
 
+var naam = document.getElementById("naam").value;
+  localStorage.setItem(naam, JSON.stringify(userData));
+  alert("Data saved successfully!");
 
+}
 
-  const berekenButton = document.getElementById("bereken-button");
-
-  const goBackButton = document.getElementById("go-back-button");
-  goBackButton.addEventListener("click", function() {
-    window.location.href = "/games/beginscherm/beginscherm.html";
-  });
-
-  function saveData() {
-    var leeftijd = parseInt(document.getElementById("leeftijd").value);
-    var gewicht = parseFloat(document.getElementById("gewicht").value);
-    var lengte = parseInt(document.getElementById("grootte").value);
-    var geslacht = document.querySelector('input[name="geslacht"]:checked').value;
-    var doelgewicht = parseFloat(document.getElementById("doelgewicht").value);
-    var afvalperiode = parseInt(document.getElementById("afvalperiode").value);
-    var bmr;
-    if (geslacht === "man") {
-      bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) + 5;
-    } else {
-      bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) - 161;
-    }
-    var dagelijkse_caloriebehoefte = bmr;
-    var dagelijkse_waterbehoefte = gewicht * 0.03;
-    var totaal_gewichtsverlies = (gewicht - doelgewicht);
-    var gewichtsverlies_per_week = totaal_gewichtsverlies / afvalperiode;
-    var dagelijkse_caloriebehoefte_naar_gewenst_gewicht = dagelijkse_caloriebehoefte - 500 * gewichtsverlies_per_week;
-  
-   
-  
-    var userData = {
-      leeftijd: leeftijd,
-      gewicht: gewicht,
-      lengte: lengte,
-      geslacht: geslacht,
-      doelgewicht: doelgewicht,
-      afvalperiode: afvalperiode,
-      dagelijkse_caloriebehoefte: dagelijkse_caloriebehoefte,
-      dagelijkse_waterbehoefte: dagelijkse_waterbehoefte,
-      totaal_gewichtsverlies: totaal_gewichtsverlies,
-      gewichtsverlies_per_week: gewichtsverlies_per_week,
-      dagelijkse_caloriebehoefte_naar_gewenst_gewicht: dagelijkse_caloriebehoefte_naar_gewenst_gewicht
-      
-
-
-
-    };
-
+function loadData() {
   var naam = document.getElementById("naam").value;
-    localStorage.setItem(naam, JSON.stringify(userData));
-    alert("Data saved successfully!");
+  var userData = localStorage.getItem(naam);
+  if (userData === null) {
+    alert("No data found for the provided name");
+  } else {
+    userData = JSON.parse(userData);
+    document.getElementById("leeftijd").value = userData.leeftijd;
+    document.getElementById("gewicht").value = userData.gewicht;
+    document.getElementById("grootte").value = userData.lengte;
+    document.querySelector('input[name="geslacht"][value="' + userData.geslacht + '"]').checked = true;
+    document.getElementById("doelgewicht").value = userData.doelgewicht;
+    document.getElementById("afvalperiode").value = userData.afvalperiode;
 
-  }
-  
-  function loadData() {
-    window.location.href = "/games/formulier test/index.html";
+    document.getElementById("leeftijd-value").value = userData.leeftijd;
+    document.getElementById("gewicht-value").value = userData.gewicht;
+    document.getElementById("grootte-value").value = userData.lengte;
+    document.getElementById("doelgewicht-value").value = userData.doelgewicht;
+    document.getElementById("afvalperiode-Value").value = userData.afvalperiode;
 
+    document.getElementById("resultaat").innerHTML =
+      "Dagelijkse waterbehoefte: " + userData.dagelijkse_waterbehoefte.toFixed(2) + " liter<br>" +
+      "Gewenst gewicht: " + userData.doelgewicht.toFixed(2) + " kg<br>" +
+      "Gewichtsverlies per week: " + userData.gewichtsverlies_per_week.toFixed(2) + " kg<br>" +
+      "Dagelijkse caloriebehoefte voor gewenst gewicht op rustdagen: " + userData.dagelijkse_caloriebehoefte_naar_gewenst_gewicht.toFixed(2) + " kcal";
   }
-  
-  
-  
+}
+
+const saveButton = document.getElementById("save-button");
+saveButton.addEventListener("click", saveData);
+
+const loadButton = document.getElementById("load-button");
+loadButton.addEventListener("click", loadData);

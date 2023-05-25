@@ -54,55 +54,19 @@
 			<input type="range" id="afvalperiode" name="afvalperiode" min="1" max="52" value="12">
 		</div>
 
+		<label for="monday"><input type="checkbox" id="monday" name="trainingsdag" value="Monday">Monday</label>
+		<label for="tuesday"><input type="checkbox" id="tuesday" name="trainingsdag" value="Tuesday">Tuesday</label>
+		<label for="wednesday"><input type="checkbox" id="wednesday" name="trainingsdag" value="Wednesday">Wednesday</label>
+		<label for="thursday"><input type="checkbox" id="thursday" name="trainingsdag" value="Thursday">Thursday</label>
+		<label for="friday"><input type="checkbox" id="friday" name="trainingsdag" value="Friday">Friday</label>
+		<label for="saturday"><input type="checkbox" id="saturday" name="trainingsdag" value="Saturday">Saturday</label>
+		<label for="sunday"><input type="checkbox" id="sunday" name="trainingsdag" value="Sunday">Sunday</label>
+
 		<button id="bereken-button" onclick="bereken(event)">Bereken</button>
 	</form>
 
 	<p id="resultaat"></p>
-	<canvas id="chart"></canvas>
-
+	<canvas id="ctx"></canvas>
 	<script src="dieet.js"></script>
-	<script>
-		function createPieChart(data, labels) {
-			var ctx = document.getElementById('chart').getContext('2d');
-			var chart = new Chart(ctx, {
-				type: 'pie',
-				data: {
-					labels: labels,
-					datasets: [
-						{
-							data: data,
-							backgroundColor: [
-								'rgba(255, 99, 132, 0.7)',
-								'rgba(54, 162, 235, 0.7)',
-								'rgba(255, 206, 86, 0.7)',
-								'rgba(75, 192, 192, 0.7)',
-								'rgba(153, 102, 255, 0.7)',
-								'rgba(255, 159, 64, 0.7)'
-							],
-							borderColor: [
-								'rgba(255, 99, 132, 1)',
-								'rgba(54, 162, 235, 1)',
-								'rgba(255, 206, 86, 1)',
-								'rgba(75, 192, 192, 1)',
-								'rgba(153, 102, 255, 1)',
-								'rgba(255, 159, 64, 1)'
-							],
-							borderWidth: 1
-						}
-					]
-				},
-				options: {
-					responsive: true
-				}
-			});
-		}
-
-		// Voorbeeldgegevens voor het taartdiagram
-		var pieData = [300, 200, 50,];
-		var pieLabels = ['Label 1', 'Label 2', 'Label 3', 'label 4'];
-
-		// Roep de functie aan om het taartdiagram te maken
-		createPieChart(pieData, pieLabels);
-	</script>
 </body>
 </html>
