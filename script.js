@@ -22,7 +22,13 @@ function showCreateProfile() {
   createProfileForm.classList.remove('hidden');
 }
 
+function HideCreateProfile(){
+  const createProfileForm = document.getElementById('createProfileForm');
+  createProfileForm.classList.add('hidden');
+}
+
 function createProfile() {
+  HideCreateProfile();
   const newUsername = document.getElementById('newUsername').value;
   const newPassword = document.getElementById('newPassword').value;
 
@@ -43,4 +49,5 @@ function createProfile() {
   } else {
     alert("Voer een gebruikersnaam en wachtwoord in voor het nieuwe profiel.");
   }
+   
 }
