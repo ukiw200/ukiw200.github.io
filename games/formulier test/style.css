@@ -37,3 +37,13 @@ body {
     font-weight: bold;
   }
   
+
+  .chart-container {
+    width: 200px;
+    height: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  

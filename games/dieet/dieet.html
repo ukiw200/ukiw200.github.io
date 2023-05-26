@@ -38,7 +38,7 @@
 
 		<div class="slider-container">
 			<label for="grootte">Grootte (cm):</label>
-			<input for="number" id="grootte-value" name="grootte" min="140" max="210" value="170"></input>
+			<input type="number" id="grootte-value" name="grootte" min="140" max="210" value="170">
 			<input type="range" id="grootte" name="grootte" min="140" max="210" value="170">
 		</div>
 
@@ -50,7 +50,7 @@
 
 		<div class="slider-container">
 			<label for="afvalperiode">Gewenste afvalperiode (weken):</label>
-			<input type="number" id="afvalperiode-Value" name="afvalperiode" min="1" max="52" value="12">
+			<input type="number" id="afvalperiode-value" name="afvalperiode" min="1" max="52" value="12">
 			<input type="range" id="afvalperiode" name="afvalperiode" min="1" max="52" value="12">
 		</div>
 
@@ -65,8 +65,20 @@
 		<button id="bereken-button" onclick="bereken(event)">Bereken</button>
 	</form>
 
+	<select id="grafiek-selectie">
+		<option value="calorieen">Calorieën</option>
+		<option value="water">Waterbehoefte</option>
+		<option value="gewicht">gewicht</option>
+	</select>
+
 	<p id="resultaat"></p>
 	<canvas id="ctx"></canvas>
+	<canvas id="water-chart"></canvas>
+	<canvas id="gewichtGrafiek"></canvas>
+
+
+	
+	
 	<script src="dieet.js"></script>
 </body>
 </html>

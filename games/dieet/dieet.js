@@ -1,5 +1,11 @@
+var dagelijkse_caloriebehoefte_naar_gewenst_gewicht;
+var wekenAfvallen;
+var gewichtData = [];
+
 function bereken(event) {
   event.preventDefault();
+  updateGrafiek();
+
   // Gebruiker input ophalen
   var leeftijd = parseInt(document.getElementById("leeftijd").value);
   var gewicht = parseFloat(document.getElementById("gewicht").value);
@@ -9,29 +15,25 @@ function bereken(event) {
   var afvalperiode = parseInt(document.getElementById("afvalperiode").value);
   var trainingsdagen = getSelectedTrainingDays();
 
-
   const selectedDays = getSelectedTrainingDays();
   if (selectedDays.length === 0) {
-    alert("Selecteer minimaal één trainingsdag");
+    alert("Selecteer minstens één trainingsdag"); // Aangepaste foutmelding
     return;
   }
 
   // Berekeningen uitvoeren
   var bmr;
   if (geslacht === "man") {
-    bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) + 5;
+    bmr = 10 * gewicht + 6.25 * lengte - 5 * leeftijd + 5;
   } else {
-    bmr = (10 * gewicht) + (6.25 * lengte) - (5 * leeftijd) - 161;
+    bmr = 10 * gewicht + 6.25 * lengte - 5 * leeftijd - 161;
   }
   var dagelijkse_caloriebehoefte = bmr;
   var dagelijkse_waterbehoefte = gewicht * 0.03;
   var totaal_gewichtsverlies = gewicht - doelgewicht;
   var gewichtsverlies_per_week = totaal_gewichtsverlies / afvalperiode;
 
-  var dagelijkse_caloriebehoefte_trainingsdag = dagelijkse_caloriebehoefte + 200;
-  var dagelijkse_caloriebehoefte_rustdag = dagelijkse_caloriebehoefte;
-
-  var dagelijkse_caloriebehoefte_naar_gewenst_gewicht = dagelijkse_caloriebehoefte_rustdag - 500 * gewichtsverlies_per_week;
+  var dagelijkse_caloriebehoefte_naar_gewenst_gewicht = dagelijkse_caloriebehoefte - 500 * gewichtsverlies_per_week;
 
   // Resultaten weergeven
   document.getElementById("resultaat").innerHTML =
@@ -40,17 +42,75 @@ function bereken(event) {
     "Gewichtsverlies per week: " + gewichtsverlies_per_week.toFixed(2) + " kg<br>" +
     "Dagelijkse caloriebehoefte voor gewenst gewicht op rustdagen: " + dagelijkse_caloriebehoefte_naar_gewenst_gewicht.toFixed(2) + " kcal";
 
+  createWaterChart(dagelijkse_waterbehoefte);
   createCalorieChart(dagelijkse_caloriebehoefte_naar_gewenst_gewicht);
+  var afvalperiode = generateAfvalperiode(wekenAfvallen);
+  createGewichtChart(gewichtData, afvalperiode);
 }
 
-function createCalorieChart(dagelijkse_caloriebehoefte_naar_gewenst_gewicht) {
-  var ctx = document.getElementById('ctx').getContext('2d');
 
+
+
+function createWaterChart(dagelijkse_waterbehoefte) {
+  var ctx = document.getElementById('water-chart').getContext('2d'); // Nieuw canvas met ID "water-chart"
+
+  var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  var selectedTrainingDays = getSelectedTrainingDays();
+  var chartData = generateWaterData(daysOfWeek, selectedTrainingDays, dagelijkse_waterbehoefte);
+
+  var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: chartData.labels,
+      datasets: [{
+        label: 'Waterbehoefte (liter)',
+        data: chartData.data,
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+function generateWaterData(daysOfWeek, selectedTrainingDays, dagelijkse_waterbehoefte) {
+  var data = [];
+
+  for (var i = 0; i < daysOfWeek.length; i++) {
+    var day = daysOfWeek[i];
+    if (selectedTrainingDays.includes(day)) {
+      data.push(dagelijkse_waterbehoefte + 0.5); // Voeg 0.5 liter toe op trainingsdagen
+    } else {
+      data.push(dagelijkse_waterbehoefte);
+    }
+  }
+
+  return {
+    labels: daysOfWeek,
+    data: data
+  };
+}
+
+var calorieChart; 
+function createCalorieChart(dagelijkse_caloriebehoefte_naar_gewenst_gewicht) {
+  var ctx = document.getElementById('ctx');
+
+  if (calorieChart) {
+    calorieChart.destroy();  // Destroy the existing chart
+  }
+
+  var context = ctx.getContext('2d');
   var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   var selectedTrainingDays = getSelectedTrainingDays();
   var chartData = generateCalorieData(daysOfWeek, selectedTrainingDays, dagelijkse_caloriebehoefte_naar_gewenst_gewicht);
 
-  var chart = new Chart(ctx, {
+  calorieChart = new Chart(ctx, {  // Assign the new chart instance to the global variable
     type: 'bar',
     data: {
       labels: chartData.labels,
@@ -71,6 +131,8 @@ function createCalorieChart(dagelijkse_caloriebehoefte_naar_gewenst_gewicht) {
   });
 }
 
+
+
 function generateCalorieData(daysOfWeek, selectedTrainingDays, dagelijkse_caloriebehoefte_naar_gewenst_gewicht) {
   var data = [];
   var trainingCalories = dagelijkse_caloriebehoefte_naar_gewenst_gewicht + 200;
@@ -90,6 +152,17 @@ function generateCalorieData(daysOfWeek, selectedTrainingDays, dagelijkse_calori
   };
 }
 
+
+
+
+
+
+
+
+
+
+
+
 function getSelectedTrainingDays() {
   var selectedDays = [];
   var checkboxes = document.getElementsByName('trainingsdag');
@@ -99,6 +172,18 @@ function getSelectedTrainingDays() {
     }
   }
   return selectedDays;
+}
+
+function updateGrafiek() {
+  var grafiekSelectie = document.getElementById("grafiek-selectie");
+
+  var geselecteerdeGrafiek = grafiekSelectie.value;
+
+  if (geselecteerdeGrafiek === "calorieen") {
+    createCalorieChart(dagelijkse_caloriebehoefte_naar_gewenst_gewicht);
+  } else if (geselecteerdeGrafiek === "water") {
+    createWaterChart(gewicht * 0.03);
+  }
 }
 
 
@@ -179,7 +264,7 @@ gewenstValue.addEventListener(
 
 
 const periodeSlider = document.getElementById("afvalperiode");
-const periodeValue = document.getElementById("afvalperiode-Value");
+const periodeValue = document.getElementById("");
 
 periodeSlider.addEventListener(
   "input", function() {
