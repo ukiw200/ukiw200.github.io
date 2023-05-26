@@ -1,53 +1,163 @@
+
 body {
-    font-family: Arial, sans-serif;
-    
-}
-
+  font-family: Arial, sans-serif;
+  }
+  
   .header {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
   }
-
+  
   .logo {
-    width: 100px;
-    height: 100px;
-    background: url('/games/VHL/img/VHL_logo.png') center/cover;
+  width: 100px;
+  height: 100px;
+  background: url('/games/VHL/img/VHL_logo.png') center/cover;
   }
-
+  
   .livestream {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f2f2f2;
   }
-
+  
   .schedule {
-    margin: 20px;
+  margin: 20px;
   }
-
+  
   table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
   }
-
+  
   th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
   }
-
+  
   th {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
   }
-
-  .logo{
-    margin-top: 0%;
+  
+  .logo {
+  margin-top: 0%;
   }
-
-  #lucas_willibal_qr{
-    height: 500px;
+  
+  #lucas_willibal_qr {
+  height: 500px;
   }
-
-  #ploegfoto{
-    height: 500px;
-    margin-left: 350px;
-    margin-top: 50px;
+  
+  #ploegfoto {
+  height: 500px;
+  margin-left: 350px;
+  margin-top: 50px;
   }
+  
+  .championship {
+  margin: 20px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  }
+  
+  .championship p {
+  margin-bottom: 10px;
+  }
+  
+  .check {
+  color: green;
+  font-weight: bold;
+  }
+  
+  p {
+  line-height: 1.5;
+  }
+  
+  h2 {
+  color: #333;
+  }
+  
+  a {
+  color: #fff;
+  text-decoration: none;
+  }
+  
+  a:hover {
+  text-decoration: underline;
+  }
+  
+  body {
+  background-color: #f9f9f9;
+  }
+  
+  /* Additional styles for an attractive youth team website */
+  
+  h1 {
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  }
+  
+  .logo img {
+  width: 100%;
+  height: 100%;
+  }
+  
+  .schedule {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+  border: none;
+  }
+  
+  th {
+  background-color: #333;
+  color: #fff;
+  }
+  
+  td {
+  border-bottom: none;
+  }
+  
+  #ploegfoto {
+  display: block;
+  margin: 50px auto;
+  }
+  
+  .championship {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  }
+  
+  .check {
+  color: green;
+  font-weight: bold;
+  }
+  
+  p {
+  margin-bottom: 10px;
+  }
+  
+  a {
+  color: #333;
+  text-decoration: none;
+  }
+  
+  a:hover {
+  text-decoration: underline;
+  }
+  
+  body {
+  background-color: #f9f9f9;
+  }
+  
+  
