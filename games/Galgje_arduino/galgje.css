@@ -1,58 +1,71 @@
 body {
-    background-color: #222;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 36px;
-    margin-top: 30px;
-  }
-  
-  form {
-    margin-top: 50px;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    background-color: #444;
-    color: #fff;
-    margin-right: 10px;
-  }
-  
-  input[type="submit"] {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #666;
-  }
-  
-  /* Extra game-stijl */
-  
-  body {
-    background-image: url('background.jpg');
-    background-size: cover;
-  }
-  
-  h1 {
-    text-shadow: 2px 2px 5px #000;
-  }
-  
-  input[type="text"], input[type="submit"] {
-    box-shadow: 2px 2px 5px #000;
-  }
-  
-  input[type="text"]:focus, input[type="submit"]:focus {
-    outline: none;
-    box-shadow: 2px 2px 5px #00ff00;
-  }
-  
+  background-color: #222;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-top: 30px;
+}
+
+form {
+  margin-top: 50px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  background-color: #444;
+  color: #fff;
+  margin-right: 10px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #666;
+}
+
+/* Extra game-stijl */
+
+body {
+  background-image: url('background.jpg');
+  background-size: cover;
+}
+
+h1 {
+  text-shadow: 2px 2px 5px #000;
+}
+
+input[type="text"], input[type="submit"] {
+  box-shadow: 2px 2px 5px #000;
+}
+
+input[type="text"]:focus, input[type="submit"]:focus {
+  outline: none;
+  box-shadow: 2px 2px 5px #00ff00;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #fff;
+}
+
+th {
+  background-color: #666;
+}

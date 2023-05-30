@@ -2,8 +2,10 @@
 <html>
 <head>
     <title>LCD Display</title>
-    <script src="galgje.js"></script>
     <link rel="stylesheet" href="galgje.css">
+
+    <script src="galgje.js"></script>
+    
 </head>
 <body>
     <h1>LCD Display</h1>
@@ -11,5 +13,15 @@
         <input type="text" id="lcdInput">
         <input type="submit" value="Display" onclick="sendData(event)">
     </form>
+    <table id="letterTable">
+        <thead>
+            <tr>
+                <th>Letters ingevoerd:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Hier worden de ingevoerde letters toegevoegd -->
+        </tbody>
+    </table>
 </body>
 </html>

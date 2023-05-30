@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inlogscherm</title>
+  <link rel="stylesheet" type="text/css" href="gezicht.css">
+  
+</head>
+<body>
+  <div class="login-container">
+    <h1>Inloggen</h1>
+    <form>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+      <input type="text" placeholder="Gebruikersnaam" required>
+      <input type="password" placeholder="Wachtwoord" required>
+      <button type="submit">Inloggen</button>
+      <div class="face-recognition">
+        <button type="button" onclick="init()">Gezichtsherkenning</button>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  <script type="text/javascript" src="gezicht.js"></script>
+</body>
+</html>
+
+
+
