@@ -110,7 +110,7 @@ function showNonLucasAlert() {
   alert("Niet Lucas!");
 }
 
-function invitation(){
+function invite(){
   window.location.href='/games/Joss/eindball.html'
   
 
