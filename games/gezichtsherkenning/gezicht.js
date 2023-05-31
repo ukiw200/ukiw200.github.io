@@ -47,12 +47,10 @@ async function predict() {
 
 function showWelcomeAlert() {
   alert("Welkom, Lucas!");
+  window.location.href='/games/beginscherm/beginscherm2.html'
 }
 
 function showNonLucasAlert() {
   alert("Niet Lucas!");
 }
 
-
-
-init();

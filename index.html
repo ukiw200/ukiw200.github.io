@@ -3,6 +3,8 @@
 <head>
   <title>Login Page</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
   
 </head>
 <body>
@@ -12,7 +14,11 @@
       <input type="text" id="username" name="username" required>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required>
+      <div id="webcam-container"></div>
+      <div id="label-container"></div>
       <button onclick="submitForm()">Submit</button>
+      <button type="button" onclick="init()">Gezichtsherkenning</button>
+
       <button onclick="showCreateProfile()">Create Profile</button>
       <div id="createProfileForm" class="hidden">
         <label for="newUsername">New Username:</label>

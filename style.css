@@ -78,3 +78,52 @@ button:hover {
     margin: 50px auto;
   }
 }
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+}
+
+.face-recognition {
+  display: flex;
+  align-items: center;
+}
+
+.face-recognition img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.face-recognition button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+}
+
