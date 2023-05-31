@@ -112,6 +112,7 @@ function showNonLucasAlert() {
 
 function invitation(){
   window.location.href='/games/Joss/eindball.html'
+  
 
 }
 
