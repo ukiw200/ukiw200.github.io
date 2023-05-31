@@ -111,6 +111,9 @@ function showNonLucasAlert() {
 }
 
 
+function invite(){
+  window.location.href='/games/Joss/eindball.html'
+}
 
 
 
