@@ -70,3 +70,18 @@ button:hover {
     font-size: 24px;
     font-weight: bold;
 }
+
+#code-section {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    text-align: left;
+  }
+  
+  #code-section button {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
