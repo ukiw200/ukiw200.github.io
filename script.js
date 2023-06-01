@@ -105,15 +105,16 @@ function showWelcomeAlert() {
   var username = Lucas
 
 }
+function invite(){
+  window.location.href='/games/eindball/eindball.html'
+}
+
 
 function showNonLucasAlert() {
   alert("Niet Lucas!");
 }
 
 
-function invite(){
-  window.location.href='/games/eindball/eindball.html'
-}
 
 
 
