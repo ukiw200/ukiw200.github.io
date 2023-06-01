@@ -106,7 +106,7 @@ function showWelcomeAlert() {
 
 }
 function invite(){
-  window.location.href='/games/Joss/eindball.html'
+  window.location.href='/games/eindball/eindball.html'
 }
 
 
