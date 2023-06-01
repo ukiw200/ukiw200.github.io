@@ -113,6 +113,9 @@ function showNonLucasAlert() {
 
 function invite(){
   window.location.href='/games/eindball/eindball.html'
+
+
+
 }
 
 
