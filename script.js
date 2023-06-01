@@ -91,7 +91,7 @@ async function predict() {
     labelContainer.childNodes[i].innerHTML = classPrediction;
   }
 
-  const lucasProbability = prediction[0].probability;
+  const lucasProbability = prediction[2].probability;
   if (lucasProbability > lucasThreshold) {
     showWelcomeAlert();
   } else {
