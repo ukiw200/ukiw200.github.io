@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var photo = overlay.parentNode.querySelector("img");
   
       submitButton.addEventListener("click", function() {
-        var password = "kkrhoer"; // Voeg hier je eigen wachtwoord toe
+        var password = "Krrhoer"; // Voeg hier je eigen wachtwoord toe
   
         if (passwordInput.value === password) {
           photo.classList.remove("blurred");
