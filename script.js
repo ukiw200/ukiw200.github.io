@@ -15,7 +15,14 @@ function submitForm() {
   } else {
     if(username=="Marie"&& password=="Krrhoer"){
       window.location.href="/face/fansite.html";
-    } else{alert("Ongeldige gebruikersnaam of wachtwoord");}
+    } else
+    { if (username=="Wiebe"&& password=="Wiebe"){
+      window.location.href="face/img/wiebe-na-2u.png"
+    } else{
+      alert("Ongeldige gebruikersnaam of wachtwoord");
+    }
+      
+  }
     
   }
 }}
