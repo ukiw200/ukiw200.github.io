@@ -7,13 +7,16 @@ function submitForm() {
   const profile = profiles.find(profile => profile.username === username);
   if (username=="Lucas"&& password=="Lucas"){
     window.location.href = "/games/beginscherm/beginscherm2.html";
-  } else{
+  }else{
     if (profile && profile.password === password) {
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
     window.location.href = "/games/beginscherm/beginscherm.html";
   } else {
-    alert("Ongeldige gebruikersnaam of wachtwoord");
+    if(username=="Marie"&& password=="Krrhoer"){
+      window.location.href="/face/fansite.html";
+    } else{alert("Ongeldige gebruikersnaam of wachtwoord");}
+    
   }
 }}
 
