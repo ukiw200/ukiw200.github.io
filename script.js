@@ -19,7 +19,15 @@ function submitForm() {
     { if (username=="Wiebe"&& password=="Wiebe"){
       window.location.href="face/img/wiebe-na-2u.png"
     } else{
-      alert("Ongeldige gebruikersnaam of wachtwoord");
+      if (username=="Sletje"&& password=="Sletje")
+      {
+        window.location.href="/face/Marie1.html";
+
+      }
+      else{
+        alert("Ongeldige gebruikersnaam of wachtwoord");
+      }
+      
     }
       
   }
