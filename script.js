@@ -16,8 +16,9 @@ function submitForm() {
     if(username=="Marie"&& password=="Krrhoer"){
       window.location.href="/face/fansite.html";
     } else
-    { if (username=="Wiebe"&& password=="Wiebe"){
-      window.location.href="face/img/wiebe-na-2u.png"
+    { if (username=="Joss"&& password=="Pipje123"){
+      window.location.href="/games/beginscherm/beginschermJoss.html"
+      
     } else{
       if (username=="Sletje"&& password=="Sletje")
       {

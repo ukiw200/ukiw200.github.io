@@ -1,0 +1,172 @@
+/* Algemene opmaak */
+body {
+    background-color: #eaeaea;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  h1 {
+    color: #ff5a5f;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  /* Opmaak voor de spelknoppen */
+  .game-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  a {
+    display: inline-block;
+    background-color: #ff5a5f;
+    color: #fff;
+    font-size: 18px;
+    padding: 16px 28px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  a:before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: top 0.3s ease;
+  }
+  
+  a:hover:before {
+    top: 0;
+  }
+  
+  a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Specifieke opmaak voor enkele knoppen */
+  a#SnakeGame {
+    background-color: #19bd9a;
+  }
+  
+  a#FlappyBirdGame {
+    background-color: #fb5607;
+  }
+  
+  a#MarioGame {
+    background-color: #ff006e;
+  }
+  
+  a#dieet {
+    background-color: #8338ec;
+  }
+  
+  a#vhl {
+    background-color: #3d3d3d;
+  }
+  
+  a#invite {
+    background-color: #fcb900;
+  }
+  
+  /* Nieuwe effecten voor de welkomsttekst */
+  
+.welcome {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: heartbeat 1s infinite;
+  }
+  
+  @keyframes heartbeat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  
+  .welcome span {
+    margin-right: 5px;
+  }
+  
+  #username {
+    font-weight: bold;
+  }
+  
+  /* Nieuwe effecten voor de titel */
+  h1 {
+    position: relative;
+    animation: heartbeat 1s infinite;
+  }
+  
+  
+  
+  
+  /* Nieuwe effecten voor de spelknoppen */
+  .game-buttons a {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .game-buttons a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: left 0.3s ease;
+  }
+  
+  .game-buttons a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .game-buttons a:hover:before {
+    left: 100%;
+  }
+  
+  /* Nieuwe achtergrondafbeelding */
+  body {
+    background-image: url("achtergrond.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
