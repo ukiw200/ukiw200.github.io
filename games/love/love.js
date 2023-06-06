@@ -9,7 +9,7 @@ function berekenLiefde() {
     var percentage;
     if (girlName === "Joss" && boyName === "Lucas") {
         percentage = 100;
-    } else if (girlName === "Joss" && boyName === "Maarten") {
+    } else if (girlName === "Joss" && boyName === "Maarten" || boyName === "Darwin") {
         percentage = 0;
     } else if(girlName == "" ){
         alert("please enter a name")}

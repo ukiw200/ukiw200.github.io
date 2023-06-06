@@ -39,7 +39,6 @@ input[type="submit"]:hover {
 /* Extra game-stijl */
 
 body {
-  background-image: url('background.jpg');
   background-size: cover;
 }
 

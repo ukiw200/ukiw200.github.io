@@ -6,7 +6,7 @@ function sendData(event) {
     event.preventDefault(); // Voorkom dat het formulier wordt verzonden
 
     var lcdText = document.getElementById("lcdInput").value; // Haal de ingevoerde tekst op
-    var url = "http://192.168.10.27/lcd?text=" + lcdText; // IP-adres van de Arduino
+    var url = "http://192.168.10.41//?word=" + lcdText; // IP-adres van de Arduino
 
     // Verstuur een HTTP-verzoek naar de Arduino
     var xhr = new XMLHttpRequest();
