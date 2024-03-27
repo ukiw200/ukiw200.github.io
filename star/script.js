@@ -1,10 +1,4 @@
-// Vervang de tips met je eigen tips
-const tips = [
-    "Maak een wandeling in het park.",
-    "Bak samen een heerlijke taart.",
-    "Schrijf elkaar liefdesbrieven.",
-    // Voeg meer tips toe zoals je wilt
-];
+
 
 const image = document.querySelector('.slide');
 const tip = document.getElementById('hidden_text');
@@ -13,6 +7,7 @@ const tip = document.getElementById('hidden_text');
 const slide1 = document.getElementById('slide1');
 const slide2 = document.getElementById('slide2');
 const slide3 = document.getElementById('slide3');
+const slide4 = document.getElementById('slide4');
 
 
 
@@ -41,4 +36,8 @@ slide2.addEventListener('click',function(){
 
 slide3.addEventListener('click',function(){
     window.open('https://tinder.com/nl', '_blank');
+});
+
+slide4.addEventListener('click',function(){
+    window.open('https://www.youtube.com/watch?v=VQeW62X8rEA','_blank')
 });
