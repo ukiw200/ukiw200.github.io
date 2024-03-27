@@ -72,10 +72,10 @@ button:hover {
   background-color: #3e8e41;
 }
 
-@media only screen and (max-width: 480px) {
+@media(min-width: 700px) {
   .login-box {
-    width: 90%;
-    margin: 50px auto;
+    width: 50%;
+    margin: 700px auto;
   }
 }
 
