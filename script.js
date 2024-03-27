@@ -17,11 +17,18 @@ function submitForm() {
       window.location.href="star/index.html"
       
     } 
-      else{
-        alert("Ongeldige gebruikersnaam of wachtwoord");
+      else 
+      {if (username=="Erika"&& password=="Mammie"){
+        window.location.href="star/Erika.html"
       }
+
+     
+        
+    
       
     }
+      
+    
       
   }
     
@@ -127,7 +134,7 @@ function showNonLucasAlert() {
 
 
 
-
+}
 
 
 
