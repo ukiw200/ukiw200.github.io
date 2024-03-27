@@ -9,6 +9,8 @@ const slide2 = document.getElementById('slide2');
 const slide3 = document.getElementById('slide3');
 const slide4 = document.getElementById('slide4');
 
+const title = document.getElementById('title');
+
 
 
 slide1.addEventListener('click',function(){
@@ -40,4 +42,9 @@ slide3.addEventListener('click',function(){
 
 slide4.addEventListener('click',function(){
     window.open('https://www.youtube.com/watch?v=VQeW62X8rEA','_blank')
+});
+
+
+title.addEventListener('click',function(){
+    alert('weer fout maar ik zie je graag babs ❤️')
 });

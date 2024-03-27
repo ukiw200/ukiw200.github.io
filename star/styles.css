@@ -22,6 +22,7 @@ header {
     max-width: 80%;
     height: auto;
     border: 5px solid black; /* Zwarte rand om de afbeelding */
+    border-radius: 10px;
     transition: transform 1s ease;
 }
 
