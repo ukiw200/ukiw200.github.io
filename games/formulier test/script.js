@@ -1,3 +1,5 @@
+
+// data ophalen
 function getData() {
     var searchName = document.getElementById("searchName").value;
     var data = localStorage.getItem(searchName);
@@ -7,7 +9,7 @@ function getData() {
         drawChart(JSON.parse(data));
     }
 }
-
+// grafiek maken 
 function drawChart(data) {
     var ctx = document.getElementById("chart").getContext("2d");
     var chart = new Chart(ctx, {

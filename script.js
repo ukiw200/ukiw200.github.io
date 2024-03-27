@@ -12,19 +12,11 @@ function submitForm() {
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
     window.location.href = "/games/beginscherm/beginscherm.html";
-  } else {
-    if(username=="Marie"&& password=="Krrhoer"){
-      window.location.href="/face/fansite.html";
-    } else
-    { if (username=="Joss"&& password=="Pipje123"){
-      window.location.href="/games/beginscherm/beginschermJoss.html"
+  } else
+    { if (username=="Sterre"&& password=="Sterretje"){
+      window.location.href="star/index.html"
       
-    } else{
-      if (username=="Sletje"&& password=="Sletje")
-      {
-        window.location.href="/face/Marie1.html";
-
-      }
+    } 
       else{
         alert("Ongeldige gebruikersnaam of wachtwoord");
       }
@@ -34,7 +26,7 @@ function submitForm() {
   }
     
   }
-}}
+
 
 function showCreateProfile() {
   const createProfileForm = document.getElementById('createProfileForm');

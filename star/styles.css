@@ -1,0 +1,81 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffcccc; /* Lichtroze achtergrondkleur */
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+#all-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+
+
+.slide {
+    max-width: 80%;
+    height: auto;
+    border: 5px solid black; /* Zwarte rand om de afbeelding */
+    transition: transform 1s ease;
+}
+
+.slide:hover{
+    transform: scale(1.1);
+    transition-delay: 1s ease;
+
+
+}
+
+#hint1{
+    font-size:7px;
+}
+
+
+#tip-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Halfdoorzichtige witte achtergrond voor tips */
+    padding: 20px;
+    text-align: center;
+    line-height: 20px;
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#pair1-container {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+@media(max-width: 768px) {
+
+    #pair1-container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        gap: 5px;
+    }
+
+    
+}

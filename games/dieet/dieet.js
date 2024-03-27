@@ -188,7 +188,7 @@ function updateGrafiek() {
 
 
   
-
+// sliders aanpassen
 const leeftijdSlider = document.getElementById('leeftijd');
 const leeftijdValue = document.getElementById('leeftijd-value');
 
@@ -289,6 +289,8 @@ goBackButton.addEventListener("click", function() {
   window.location.href = "/games/beginscherm/beginscherm.html";
 });
 
+
+// save data in local storage
 function saveData() {
   var leeftijd = parseInt(document.getElementById("leeftijd").value);
   var gewicht = parseFloat(document.getElementById("gewicht").value);
@@ -311,7 +313,7 @@ function saveData() {
  
 
   var userData = {
-    leeftijd: leeftijd,
+    leeftijd,
     gewicht: gewicht,
     lengte: lengte,
     geslacht: geslacht,
