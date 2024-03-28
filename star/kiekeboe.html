@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kiekeboe</title>
+  </head>
+  <body>
+    <div class="img-container">
+      <p id="Kiekeboe"></p>
+      <img id="img" src="/star/img/kiekeboe.JPG" alt="" />
+      <button id="button">doe ogen open</button>
+    </div>
+  </body>
+  <style>
+    img {
+      max-width: 60%;
+      height: auto;
+      border: 5px solid pink; /* pink rand om de afbeelding */
+    }
+
+    #kiekeboe {
+      display: none;
+    }
+
+    .img-container {
+      display: grid;
+      grid-template-columns: repeat(1, 2fr);
+      justify-items: center;
+      gap: 10px;
+    }
+
+    #button {
+      border: 5px solid pink; /* pink rand om de afbeelding */
+      border-radius: 10px;
+    }
+  </style>
+
+  <script>
+    const button = document.getElementById("button");
+    const img = document.getElementById("img");
+    const text = document.getElementById("Kiekeboe");
+
+    button.addEventListener("click", function () {
+      var passwd = "kiekeboe";
+      var input = prompt("Enter your password");
+      if (input == passwd) {
+        alert("goed gevonden");
+        img.src = "/star/img/IMG_7671.JPG";
+        text.innerHTML = "Kiekeboe oke oke de volgende tip is....... 🐄🐮🐑";
+        button.style.display = "none";
+      } else {
+        alert("dutske toch da was ni juist hahahahhaha");
+      }
+    });
+  </script>
+</html>

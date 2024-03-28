@@ -41,7 +41,9 @@ slide3.addEventListener('click',function(){
 });
 
 slide4.addEventListener('click',function(){
-    window.open('https://www.youtube.com/watch?v=VQeW62X8rEA','_blank')
+    alert('als je uw ogen toe doet ga je niet veel zien eh schattie')
+
+    window.open('/star/kiekeboe.html','_blank')
 });
 
 
