@@ -17,29 +17,30 @@
       alt="als je goed kijkt kan dit een goeie hint zijn en als je geen foto ziet klik dan op deze link"
     />
     <a
-      id="car"
+      id="car1"
       class="car"
       href="/star/img/159894689-retro-auto-zonder-dak-met-bestuurder-cartoon-illustratie-geïsoleerd-object-op-witte-achtergrond.jpg"
-      >hier</a
+      >Link</a
     >
   </body>
 
   <style>
     .car {
       display: none;
-      margin: auto;
     }
   </style>
 
   <script>
     const text = document.getElementById("text");
     const car = document.getElementById("car");
+    const car1 = document.getElementById("car1");
     const button = document.getElementById("btncheck");
     let Tel = 0;
 
     button.addEventListener("click", function () {
       if (text.value == "Snuffeltje") {
         car.style.display = "block";
+        car1.style.display = "block";
       } else {
         alert(
           "fout wachtwoord nu gaat de teller omhoog, je hebt maar 3 kansen"
