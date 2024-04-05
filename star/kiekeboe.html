@@ -9,6 +9,7 @@
     <div class="img-container">
       <p id="Kiekeboe"></p>
       <img id="img" src="/star/img/kiekeboe.JPG" alt="" />
+      <img src="/star/img/rebus.png" id="rebus" />
       <button id="button">doe ogen open</button>
     </div>
   </body>
@@ -17,6 +18,8 @@
       max-width: 60%;
       height: auto;
       border: 5px solid pink; /* pink rand om de afbeelding */
+      grid-column-start: 1;
+      grid-column-end: 3;
     }
 
     #kiekeboe {
@@ -25,7 +28,7 @@
 
     .img-container {
       display: grid;
-      grid-template-columns: repeat(1, 2fr);
+      grid-template-columns: repeat(2, 2fr);
       justify-items: center;
       gap: 10px;
     }
@@ -33,6 +36,12 @@
     #button {
       border: 5px solid pink; /* pink rand om de afbeelding */
       border-radius: 10px;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    #rebus {
+      grid-row-start: 1;
     }
   </style>
 
