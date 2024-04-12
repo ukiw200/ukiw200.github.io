@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ben je er zeker van dat het hier al gedaan is?</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9e6eb;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .love-letter {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        animation: float 5s infinite alternate;
+      }
+
+      h1 {
+        color: #ff0066;
+      }
+
+      p {
+        color: #333;
+        font-size: 18px;
+      }
+
+      .heart {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 40px;
+        height: 40px;
+        background-color: #ff0066;
+        border-radius: 50%;
+        cursor: pointer;
+        animation: heartbeat 1s infinite alternate;
+      }
+
+      .hidden-message {
+        display: none;
+        margin-top: 20px;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="love-letter">
+      <div class="heart" onclick="revealMessage()"></div>
+      <h1>Sterretje</h1>
+      <p>
+        Hey Sterretje, als je hier bent heb je de website uitgespeeld. Duss
+        proficiat!
+      </p>
+      <p>
+        Ondertussen zal je een soort van idee hebben van wat we samen gaan doen
+        of wat ik in gedachten heb voor jou een leuke namiddag te bezorgen
+      </p>
+      <p>
+        het is niks groot,het is niks klein het is iets wat je hopelijk enorm
+        leuk en gezellig gaat vinden. Starffer nog, jij hebt mij zelf op het
+        idee gebracht om het te doen voor dat we effectief samen waren.
+      </p>
+      <p>
+        Ja ik neem je ergens mee naartoe, en ik hoooop dat het goed weer zal
+        zijn dan. Ik neem je mee naar ergens waar ik vroeger als kind ook
+        naartoe ging, ergens waar ik eigenlijk al lang niet meer ben geweest.
+      </p>
+      <p>
+        Het is niet percé dat de plaats zo super speciaal is maar toch veel
+        leuke herineringen aan heb overgehouden.
+      </p>
+      <p>
+        Het is een plek waar mijn mama ooit van zei: "Lucas, als je ooit
+        verliefd bent op een meisje en iets leuk met haar wilt gaan doen moet je
+        haar hier mee naartoe nemen"
+      </p>
+      <p>
+        Dat ze dat zei is ondertussen al zeker 10 jaar geleden. Ik heb nog nooit
+        een meisje daarmee naartoe genomen.
+      </p>
+      <p>
+        Langs de ene kant omdat ik het een beetje vergeten was van die plaats
+      </p>
+      <p>Maar als ik er nu over nadenk had niemand dat verdient</p>
+      <p>En daarom neem ik jou wel mee omdat jij dat wel verdient</p>
+
+      <p>Ik kijk er al enorm hard naar uit</p>
+      <p>Lucas</p>
+
+      <div class="hidden-message" id="specialMessage">
+        <p>goed gevonden schattie, ofc was het nog niet gedaan met spelen :)</p>
+        <p>
+          zoek nog maar een beetje verder en je kan
+          <a href="/star/ToBeCont.html">hier</a> beginnen
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function revealMessage() {
+        var message = document.getElementById("specialMessage");
+        message.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

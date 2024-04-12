@@ -32,7 +32,7 @@ slide1.addEventListener('click',function(){
 });
 
 slide2.addEventListener('click',function(){
-    alert('oei oei hier zit je verkeerd schattie')
+    window.open('/star/letter.html', '_blank');
 });
 
 
