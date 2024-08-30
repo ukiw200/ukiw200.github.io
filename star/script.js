@@ -50,3 +50,7 @@ slide4.addEventListener('click',function(){
 title.addEventListener('click',function(){
     alert('weer fout maar ik zie je graag babs ❤️')
 });
+
+function phish(){
+    window.open('love.html')
+}
